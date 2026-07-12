@@ -373,6 +373,32 @@
   .act.saved{color:var(--blue)}
   .post-video{width:100%;border-radius:12px;margin:10px 0 2px;border:1px solid var(--line);display:block;background:#000;max-height:520px}
   .composer-preview video{max-width:100%;border-radius:12px;border:1px solid var(--line);display:block}
+    .prof-meta{font-size:13.5px;color:#42506B;margin:2px 0 12px;display:flex;flex-direction:column;gap:3px}
+  .album{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px}
+  .al{aspect-ratio:1;border-radius:8px;background-size:cover;background-position:center;background-color:#dfe7f2}
+  .msg{max-width:78%;align-self:flex-start}
+  .msg.me{align-self:flex-end}
+  .msg .mb{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:14px;font-size:14.5px;white-space:pre-wrap;word-wrap:break-word}
+  .msg.me .mb{background:var(--grad);color:#fff;border-color:transparent}
+  .msg .mt{font-size:11px;color:var(--muted);margin:2px 6px}
+  .msg.me .mt{text-align:right}
+  .thread-head{display:flex;align-items:center;gap:10px;position:sticky;top:56px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:10px 2px;border-bottom:1px solid var(--line);z-index:5}
+  .thread-head .tname{font-weight:600;font-size:16px;color:var(--navy);cursor:pointer}
+  .thread-body{padding:14px 2px 80px;display:flex;flex-direction:column;gap:8px;min-height:52vh}
+  .thread-input{position:fixed;bottom:0;left:0;right:0;max-width:640px;margin:0 auto;display:flex;gap:8px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:30}
+  .thread-input input{flex:1;border:1.5px solid var(--line);border-radius:22px;padding:11px 16px;font-size:15px;outline:none}
+  .thread-input input:focus{border-color:var(--blue)}
+  .thread-input button{border:none;background:var(--grad);color:#fff;width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;cursor:pointer}
+  #app.thread-open .bottomnav{display:none}
+  .ev-card{padding:0;overflow:hidden;margin-bottom:12px;cursor:pointer}
+  .ev-cover{height:96px}
+  .ev-body{padding:13px 15px}
+  .ev-title{font-family:'Poppins';font-weight:700;color:var(--navy);font-size:16px}
+  .ev-when{font-size:13px;color:var(--blue);font-weight:600;margin:3px 0}
+  .ev-loc{font-size:13px;color:var(--muted)}
+  .ev-going{font-size:12.5px;color:var(--muted);margin-top:4px}
+  #emDate{width:100%;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;outline:none;background:#fff;color:var(--ink)}
+  #emDate:focus{border-color:var(--blue)}
   .cover-prev{height:84px;border-radius:12px;background:var(--grad);margin-bottom:10px;border:1px solid var(--line)}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -547,7 +573,7 @@
     <section id="scrFeed" class="screen">
       <div id="dashHeader"></div>
       <div id="storiesRow" class="stories"></div>
-      <div class="shortcuts"><button class="chip" data-go="people">👥 Vrienden</button><button class="chip" data-go="pages">📄 Pagina's</button><button class="chip" data-go="saved">🔖 Opgeslagen</button></div>
+      <div class="shortcuts"><button class="chip" data-go="people">👥 Vrienden</button><button class="chip" data-go="groups">👨‍👩‍👧 Groepen</button><button class="chip" data-go="events">📅 Evenementen</button><button class="chip" data-go="chat">💬 Chat</button><button class="chip" data-go="pages">📄 Pagina's</button><button class="chip" data-go="saved">🔖 Opgeslagen</button></div>
       <div id="friendReqCard"></div>
       <div class="sug-label">Mensen om te volgen</div>
       <div id="suggestRow" class="suggest"></div>
@@ -591,17 +617,42 @@
     <section id="scrProfile" class="screen" style="display:none">
       <div id="profileHead"></div>
       <div id="profileExtra"></div>
+      <div id="profileAlbum"></div>
       <div id="profilePosts"></div>
     </section>
     <section id="scrSaved" class="screen" style="display:none">
       <div class="scr-title">Opgeslagen</div>
       <div id="savedList"></div>
     </section>
+    <section id="scrChat" class="screen" style="display:none">
+      <div class="scr-title">Berichten</div>
+      <div id="chatList"></div>
+    </section>
+    <section id="scrThread" class="screen" style="display:none">
+      <div class="thread-head" id="threadHead"></div>
+      <div class="thread-body" id="threadBody"></div>
+      <div class="thread-input"><input id="threadInput" type="text" placeholder="Typ een bericht…"><button id="threadSend"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></div>
+    </section>
+    <section id="scrGroups" class="screen" style="display:none">
+      <div class="scr-title">Groepen</div>
+      <div id="groupsList"></div>
+    </section>
+    <section id="scrGroup" class="screen" style="display:none">
+      <div id="groupHead"></div><div id="groupComposer"></div><div id="groupPosts"></div>
+    </section>
+    <section id="scrEvents" class="screen" style="display:none">
+      <div class="scr-title">Evenementen</div>
+      <div id="eventsList"></div>
+    </section>
+    <section id="scrEvent" class="screen" style="display:none">
+      <div id="eventDetail"></div>
+    </section>
   </main>
 
   <nav class="bottomnav">
     <button class="navbtn active" data-scr="feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></button>
     <button class="navbtn" data-scr="people"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2 20c0-3.3 3.1-5 7-5s7 1.7 7 5"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20c0-2.6-1.4-4.2-3.5-5"/></svg><span>Ontdek</span></button>
+    <button class="navbtn" data-scr="chat"><span class="badge" id="chatBadge">0</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span>Chat</span></button>
     <button class="navbtn" data-scr="notifs"><span class="badge" id="notifBadge">0</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Meldingen</span></button>
     <button class="navbtn" data-scr="profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>Profiel</span></button>
   </nav>
@@ -623,6 +674,9 @@
   </div>
   <div class="field"><label>Naam</label><input id="profName" type="text" placeholder="Je naam"></div>
   <div class="field"><label>Bio</label><textarea id="profBio" placeholder="Vertel kort iets over jezelf"></textarea></div>
+  <div class="field"><label>Werk</label><input id="profWork" type="text" placeholder="Bijv. Beveiliger bij Zuurman"></div>
+  <div class="field"><label>Woonplaats</label><input id="profLoc" type="text" placeholder="Bijv. Onstwedde"></div>
+  <div class="field"><label>Website</label><input id="profWeb" type="text" placeholder="https://..."></div>
   <div class="modal-actions"><button id="profCancel" class="btn btn-line">Annuleren</button><button id="profSave" class="btn btn-primary" style="width:auto">Opslaan</button></div>
 </div></div>
 
@@ -639,6 +693,20 @@
   <div class="field"><label>Categorie</label><select id="pgmCat"><option>Bedrijf</option><option>Merk</option><option>Openbaar figuur</option><option>Community</option><option>Goed doel</option><option>Vereniging</option><option>Overig</option></select></div>
   <div class="field"><label>Omschrijving</label><textarea id="pgmAbout" placeholder="Waar gaat je pagina over?"></textarea></div>
   <div class="modal-actions"><button id="pgmCancel" class="btn btn-line">Annuleren</button><button id="pgmSave" class="btn btn-primary" style="width:auto">Aanmaken</button></div>
+</div></div>
+<div id="groupModal" class="modal-bg"><div class="modal">
+  <h3>Nieuwe groep</h3>
+  <div class="field"><label>Naam</label><input id="gmName" type="text" placeholder="Bijv. Beveiligers Nederland"></div>
+  <div class="field"><label>Omschrijving</label><textarea id="gmAbout" placeholder="Waar gaat de groep over?"></textarea></div>
+  <div class="modal-actions"><button id="gmCancel" class="btn btn-line">Annuleren</button><button id="gmSave" class="btn btn-primary" style="width:auto">Aanmaken</button></div>
+</div></div>
+<div id="eventModal" class="modal-bg"><div class="modal">
+  <h3>Nieuw evenement</h3>
+  <div class="field"><label>Titel</label><input id="emTitle" type="text" placeholder="Bijv. Netwerkborrel"></div>
+  <div class="field"><label>Datum en tijd</label><input id="emDate" type="datetime-local"></div>
+  <div class="field"><label>Locatie</label><input id="emLoc" type="text" placeholder="Waar?"></div>
+  <div class="field"><label>Omschrijving</label><textarea id="emDesc" placeholder="Details"></textarea></div>
+  <div class="modal-actions"><button id="emCancel" class="btn btn-line">Annuleren</button><button id="emSave" class="btn btn-primary" style="width:auto">Aanmaken</button></div>
 </div></div>
 <div id="reactPicker" class="react-picker"></div>
 <div id="emojiPop" class="emoji-pop"></div>
@@ -662,7 +730,7 @@ function uuid(){return (window.crypto&&crypto.randomUUID)?crypto.randomUUID():'x
 async function sbErr(p,label){try{const {error}=await p;if(error){console.error(label,error);toast(label+': '+(error.message||'fout'));}}catch(e){console.error(label,e);toast(label+' mislukt');}}
 async function loadAll(){
   try{
-    const [pr,pg,po,lk,cm,fl,pf,fr]=await Promise.all([
+    const [pr,pg,po,lk,cm,fl,pf,fr,gr,gm,ms,ev,eg]=await Promise.all([
       sb.from('profiles').select('*'),
       sb.from('pages').select('*'),
       sb.from('posts').select('*').order('created_at',{ascending:false}),
@@ -670,9 +738,14 @@ async function loadAll(){
       sb.from('comments').select('*'),
       sb.from('follows').select('*'),
       sb.from('page_follows').select('*'),
-      sb.from('friendships').select('*')
+      sb.from('friendships').select('*'),
+      sb.from('groups').select('*'),
+      sb.from('group_members').select('*'),
+      sb.from('messages').select('*'),
+      sb.from('events').select('*'),
+      sb.from('event_going').select('*')
     ]);
-    DB.users=pr.data||[];DB.pages=pg.data||[];DB.posts=po.data||[];DB.likes=lk.data||[];DB.comments=cm.data||[];DB.follows=fl.data||[];DB.pageFollows=pf.data||[];DB.friendships=fr.data||[];
+    DB.users=pr.data||[];DB.pages=pg.data||[];DB.posts=po.data||[];DB.likes=lk.data||[];DB.comments=cm.data||[];DB.follows=fl.data||[];DB.pageFollows=pf.data||[];DB.friendships=fr.data||[];DB.groups=gr.data||[];DB.groupMembers=gm.data||[];DB.messages=ms.data||[];DB.events=ev.data||[];DB.eventGoing=eg.data||[];
   }catch(e){console.error('loadAll',e);toast('Kon gegevens niet laden');}
 }
 let refT;
@@ -737,7 +810,7 @@ function seed(){
     readAt:{},
     sessionUserId:null};
 }
-let DB={users:[],posts:[],likes:[],comments:[],follows:[],pages:[],pageFollows:[],friendships:[]};
+let DB={users:[],posts:[],likes:[],comments:[],follows:[],pages:[],pageFollows:[],friendships:[],groups:[],groupMembers:[],messages:[],events:[],eventGoing:[]};
 DB.readAt={};
 let me=null,myProfile=null,currentScreen='feed',feedTab='all',viewing={kind:'user',id:null},pendingImage=null,pendingVideo=null,ontdekSeg='people';
 
@@ -808,11 +881,8 @@ document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>setScreen(b.datase
 $('#brandHome').onclick=()=>setScreen('feed');
 function setScreen(name,userId){
   currentScreen=name;
-  $('#scrFeed').style.display=name==='feed'?'block':'none';
-  $('#scrPeople').style.display=name==='people'?'block':'none';
-  $('#scrNotifs').style.display=name==='notifs'?'block':'none';
-  $('#scrProfile').style.display=name==='profile'?'block':'none';
-  $('#scrSaved').style.display=name==='saved'?'block':'none';
+  $('#app').classList.remove('thread-open');
+  ['Feed','People','Notifs','Profile','Saved','Chat','Thread','Groups','Group','Events','Event'].forEach(s=>{const e=$('#scr'+s);if(e)e.style.display=(s.toLowerCase()===name)?'block':'none';});
   document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.scr===name));
   window.scrollTo(0,0);
   if(name==='feed'){renderDashHeader();renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
@@ -820,6 +890,9 @@ function setScreen(name,userId){
   if(name==='people'){renderPeople($('#peopleSearch').value);renderPagesList($('#peopleSearch').value);$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';}
   if(name==='notifs'){renderNotifs();DB.readAt[me.id]=new Date().toISOString();saveDB();updateBadge();}
   if(name==='profile'){viewing={kind:'user',id:userId||me.id};renderProfile(viewing.id);}
+  if(name==='chat'){renderChat();DB.readAt.chat=new Date().toISOString();updateBadge();}
+  if(name==='groups'){renderGroups();}
+  if(name==='events'){renderEvents();}
 }
 
 /* ---------- suggestions ---------- */
@@ -870,6 +943,7 @@ document.querySelectorAll('.ftab').forEach(t=>t.onclick=()=>{document.querySelec
 function postView(p){return {...p,profiles:userById(p.user_id),likes:DB.likes.filter(l=>l.post_id===p.id),comments:DB.comments.filter(c=>c.post_id===p.id).map(c=>({...c,profiles:userById(c.user_id)}))};}
 function buildFeed(){
   let posts=DB.posts.slice().sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+  posts=posts.filter(p=>!p.group_id);
   if(feedTab==='following'){
     const uids=new Set(DB.follows.filter(f=>f.follower_id===me.id).map(f=>f.following_id));uids.add(me.id);
     const pids=new Set(DB.pageFollows.filter(f=>f.user_id===me.id).map(f=>f.page_id));
@@ -912,6 +986,7 @@ function renderPost(p){
       </button>
       <button class="act comment-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span>${comN||''} Reageren</span></button>
       <button class="act save ${isSaved(p.id)?'saved':''}"><svg viewBox="0 0 24 24" fill="${isSaved(p.id)?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg><span>Opslaan</span></button>
+      <button class="act share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg><span>Delen</span></button>
     </div>
     <div class="comments"><div class="comment-list">${comments}</div><div class="add-comment"><input type="text" placeholder="Schrijf een reactie…" maxlength="2000"><button title="Versturen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></div></div>
   </div>`;
@@ -956,7 +1031,7 @@ function renderFriendReqCard(){
   el.querySelectorAll('[data-acc]').forEach(b=>b.onclick=()=>{acceptFriend(b.dataset.acc);renderFriendReqCard();renderStories();updateBadge();});
   el.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{declineFriend(b.dataset.dec);renderFriendReqCard();updateBadge();});
 }
-document.querySelectorAll('.chip[data-go]').forEach(c=>c.onclick=()=>{const g=c.dataset.go;if(g==='saved'){setScreen('saved');return;}ontdekSeg=(g==='pages')?'pages':'people';setScreen('people');document.querySelectorAll('.segbtn').forEach(x=>x.classList.toggle('active',x.dataset.seg===ontdekSeg));$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';});
+document.querySelectorAll('.chip[data-go]').forEach(c=>c.onclick=()=>{const g=c.dataset.go;if(['saved','groups','events','chat'].includes(g)){setScreen(g);return;}ontdekSeg=(g==='pages')?'pages':'people';setScreen('people');document.querySelectorAll('.segbtn').forEach(x=>x.classList.toggle('active',x.dataset.seg===ontdekSeg));$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';});
 function bindPosts(root){
   root.querySelectorAll('[data-user]').forEach(el=>el.addEventListener('click',ev=>{ev.stopPropagation();setScreen('profile',el.dataset.user);}));
   root.querySelectorAll('[data-page]').forEach(el=>el.addEventListener('click',ev=>{ev.stopPropagation();openPage(el.dataset.page);}));
@@ -974,6 +1049,7 @@ function bindPosts(root){
     const ci=card.querySelector('.add-comment input'),cb=card.querySelector('.add-comment button');
     const send=()=>addComment(id,ci);cb.onclick=send;ci.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
     const sv=card.querySelector('.save');if(sv)sv.onclick=()=>{toggleSave(id);if(currentScreen==='saved')renderSaved();else rerenderPosts();};
+    const sh=card.querySelector('.share');if(sh)sh.onclick=()=>{const p=DB.posts.find(x=>x.id===id)||{};const text=p.content||'Bekijk dit op oitalk';if(navigator.share){navigator.share({title:'oitalk',text,url:location.href}).catch(()=>{});}else{try{navigator.clipboard.writeText(location.href);}catch(e){}toast('Link gekopieerd');}};
   });
 }
 document.addEventListener('click',()=>document.querySelectorAll('.post-menu.open').forEach(x=>x.classList.remove('open')));
@@ -1041,7 +1117,7 @@ function myNotifs(){
   return list.sort((a,b)=>new Date(b.at)-new Date(a.at));
 }
 function unreadCount(){const r=DB.readAt[me.id];const n=myNotifs();return r?n.filter(x=>new Date(x.at)>new Date(r)).length:n.length;}
-function updateBadge(){const c=unreadCount();const b=$('#notifBadge');b.textContent=c>9?'9+':c;b.classList.toggle('show',c>0);}
+function updateBadge(){const c=unreadCount();const b=$('#notifBadge');b.textContent=c>9?'9+':c;b.classList.toggle('show',c>0);const cb=$('#chatBadge');if(cb){const r=DB.readAt.chat;const uc=(DB.messages||[]).filter(m=>m.receiver_id===me.id&&(!r||new Date(m.created_at)>new Date(r))).length;cb.textContent=uc>9?'9+':uc;cb.classList.toggle('show',uc>0);}}
 function renderNotifs(){
   const n=myNotifs(),r=DB.readAt[me.id];const el=$('#notifList');
   if(!n.length){el.innerHTML=`<div class="card empty"><div class="big">Nog geen meldingen</div>Zodra mensen je volgen of op je posts reageren, zie je het hier.</div>`;return;}
@@ -1061,7 +1137,7 @@ function renderNotifs(){
 }
 
 /* ---------- profile ---------- */
-function renderProfile(userId){renderProfileHead(userId);renderMyPagesPanel(userId);renderProfilePosts(userId);}
+function renderProfile(userId){renderProfileHead(userId);renderMyPagesPanel(userId);renderAlbum(userId);renderProfilePosts(userId);}
 function myFriendships(){return DB.friendships||[];}
 function friendRow(other){return myFriendships().find(f=>(f.requester_id===me.id&&f.addressee_id===other)||(f.requester_id===other&&f.addressee_id===me.id));}
 function friendStatus(other){const f=friendRow(other);if(!f)return 'none';if(f.status==='accepted')return 'friends';return f.requester_id===me.id?'sent':'recv';}
@@ -1088,6 +1164,7 @@ function renderProfileHead(userId){
       ${avatarHTML(userId,u.display_name,'xl')}
       <div class="prof-name">${esc(u.display_name)}</div>
       <div class="prof-bio">${esc(u.bio||'Nog geen bio.')}</div>
+      ${(u.work||u.location||u.website)?`<div class="prof-meta">${u.work?`<div>💼 ${esc(u.work)}</div>`:''}${u.location?`<div>📍 ${esc(u.location)}</div>`:''}${u.website?`<div>🔗 ${esc(u.website)}</div>`:''}</div>`:''}
       <div class="prof-stats"><div class="st"><b>${posts}</b><span>posts</span></div><div class="st"><b>${friends}</b><span>vrienden</span></div><div class="st"><b>${followers}</b><span>volgers</span></div><div class="st"><b>${following}</b><span>volgend</span></div></div>
       <div class="prof-actions">${isMe
         ?`<button class="btn btn-primary" id="editProfBtn" style="width:auto">Profiel bewerken</button>`
@@ -1102,7 +1179,7 @@ function renderProfileHead(userId){
   }
 }
 function renderProfilePosts(userId){
-  const posts=DB.posts.filter(p=>p.user_id===userId&&!p.page_id).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).map(postView);
+  const posts=DB.posts.filter(p=>p.user_id===userId&&!p.page_id&&!p.group_id).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).map(postView);
   const el=$('#profilePosts');
   if(!posts.length){el.innerHTML=`<div class="card empty">${userId===me.id?'Je hebt nog niets geplaatst.':'Deze persoon heeft nog niets geplaatst.'}</div>`;return;}
   el.innerHTML=posts.map(renderPost).join('');bindPosts(el);
@@ -1113,7 +1190,7 @@ let pendingAvatar=null,pendingCover=null;
 function openProfileModal(){
   pendingAvatar=null;pendingCover=null;const _c=(DB.users.find(x=>x.id===me.id)||{}).cover;$('#profCoverPrev').style.cssText=_c?`background-image:url('${_c}');background-size:cover;background-position:center`:'';
   $('#profAvatar').outerHTML=avatarHTML(me.id,myProfile.display_name,'lg').replace('class="avatar lg"','id="profAvatar" class="avatar lg"');
-  $('#profEmail').textContent=me.email;$('#profName').value=myProfile.display_name||'';$('#profBio').value=myProfile.bio||'';
+  $('#profEmail').textContent=me.email;$('#profName').value=myProfile.display_name||'';$('#profBio').value=myProfile.bio||'';$('#profWork').value=myProfile.work||'';$('#profLoc').value=myProfile.location||'';$('#profWeb').value=myProfile.website||'';
   $('#profileModal').classList.add('open');
 }
 $('#profAvatarBtn').onclick=()=>$('#profAvatarInput').click();
@@ -1122,9 +1199,117 @@ $('#profCoverInput').onchange=e=>{const f=e.target.files[0];if(!f)return;downsca
 $('#profAvatarInput').onchange=e=>{const f=e.target.files[0];if(!f)return;downscale(f,400,.85,d=>{pendingAvatar=d;$('#profAvatar').outerHTML=`<div id="profAvatar" class="avatar lg" style="background-image:url('${d}');background-size:cover;background-position:center"></div>`;});e.target.value='';};
 $('#profCancel').onclick=()=>$('#profileModal').classList.remove('open');
 $('#profileModal').onclick=e=>{if(e.target.id==='profileModal')$('#profileModal').classList.remove('open');};
-$('#profSave').onclick=()=>{const name=$('#profName').value.trim();if(!name){toast('Naam mag niet leeg zijn');return;}const u=DB.users.find(x=>x.id===me.id);u.display_name=name;u.bio=$('#profBio').value.trim();if(pendingAvatar)u.avatar=pendingAvatar;if(pendingCover)u.cover=pendingCover;myProfile=u;sbErr(sb.from('profiles').update({display_name:u.display_name,bio:u.bio,avatar:u.avatar||null,cover:u.cover||null}).eq('id',me.id),'Profiel');$('#myAvatar').outerHTML=avatarHTML(me.id,name,'sm').replace('class="avatar sm"','id="myAvatar" class="avatar sm"');$('#profileModal').classList.remove('open');toast('Profiel opgeslagen');renderProfile(me.id);};
+$('#profSave').onclick=()=>{const name=$('#profName').value.trim();if(!name){toast('Naam mag niet leeg zijn');return;}const u=DB.users.find(x=>x.id===me.id);u.display_name=name;u.bio=$('#profBio').value.trim();u.work=$('#profWork').value.trim();u.location=$('#profLoc').value.trim();u.website=$('#profWeb').value.trim();if(pendingAvatar)u.avatar=pendingAvatar;if(pendingCover)u.cover=pendingCover;myProfile=u;sbErr(sb.from('profiles').update({display_name:u.display_name,bio:u.bio,work:u.work,location:u.location,website:u.website,avatar:u.avatar||null,cover:u.cover||null}).eq('id',me.id),'Profiel');$('#myAvatar').outerHTML=avatarHTML(me.id,name,'sm').replace('class="avatar sm"','id="myAvatar" class="avatar sm"');$('#profileModal').classList.remove('open');toast('Profiel opgeslagen');renderProfile(me.id);};
 
 /* ---------- logout ---------- */
+
+/* ================= CHAT ================= */
+function convList(){
+  const map={};
+  (DB.messages||[]).forEach(m=>{const other=m.sender_id===me.id?m.receiver_id:m.sender_id;if(other===me.id)return;if(!map[other]||new Date(m.created_at)>new Date(map[other].created_at))map[other]=m;});
+  return Object.keys(map).map(id=>({other:id,last:map[id]})).sort((a,b)=>new Date(b.last.created_at)-new Date(a.last.created_at));
+}
+function renderChat(){
+  const el=$('#chatList');const list=convList();
+  const head=`<div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="chatNew" type="text" placeholder="Zoek iemand om te appen"></div><div id="chatNewList"></div>`;
+  el.innerHTML=head+(list.length?list.map(c=>{const u=userById(c.other);const mine=c.last.sender_id===me.id;return `<div class="person" data-thread="${c.other}">${avatarHTML(c.other,u.display_name,'sm')}<div class="who"><div class="pn">${esc(u.display_name)}</div><div class="pb">${mine?'Jij: ':''}${esc(c.last.content)}</div></div><div style="font-size:12px;color:var(--muted)">${timeAgo(c.last.created_at)}</div></div>`;}).join(''):`<div class="card empty">Nog geen gesprekken. Zoek hierboven iemand om een bericht te sturen.</div>`);
+  el.querySelectorAll('[data-thread]').forEach(b=>b.onclick=()=>openThread(b.dataset.thread));
+  const s=$('#chatNew');s.addEventListener('input',()=>{const q=s.value.trim().toLowerCase();const nl=$('#chatNewList');if(!q){nl.innerHTML='';return;}const res=DB.users.filter(u=>u.id!==me.id&&u.display_name.toLowerCase().includes(q)).slice(0,6);nl.innerHTML=res.map(u=>`<div class="person" data-thread="${u.id}">${avatarHTML(u.id,u.display_name,'sm')}<div class="who"><div class="pn">${esc(u.display_name)}</div></div></div>`).join('');nl.querySelectorAll('[data-thread]').forEach(b=>b.onclick=()=>openThread(b.dataset.thread));});
+}
+let threadWith=null;
+function openThread(other){
+  threadWith=other;currentScreen='thread';
+  ['Feed','People','Notifs','Profile','Saved','Chat','Thread','Groups','Group','Events','Event'].forEach(s=>{const e=$('#scr'+s);if(e)e.style.display=(s==='Thread')?'block':'none';});
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));
+  $('#app').classList.add('thread-open');
+  renderThread();window.scrollTo(0,0);
+}
+function renderThread(){
+  const u=userById(threadWith);
+  const msgs=(DB.messages||[]).filter(m=>(m.sender_id===me.id&&m.receiver_id===threadWith)||(m.sender_id===threadWith&&m.receiver_id===me.id)).sort((a,b)=>new Date(a.created_at)-new Date(b.created_at));
+  $('#threadHead').innerHTML=`<button class="icon-btn" id="threadBack"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>${avatarHTML(threadWith,u.display_name,'sm')}<div class="tname" data-user="${threadWith}">${esc(u.display_name)}</div>`;
+  $('#threadBack').onclick=()=>setScreen('chat');
+  $('#threadHead [data-user]').onclick=()=>setScreen('profile',threadWith);
+  $('#threadBody').innerHTML=msgs.length?msgs.map(m=>`<div class="msg ${m.sender_id===me.id?'me':''}"><div class="mb">${esc(m.content)}</div><div class="mt">${timeAgo(m.created_at)}</div></div>`).join(''):`<div class="empty" style="padding:30px">Stuur het eerste bericht 👋</div>`;
+  $('#threadBody').scrollTop=$('#threadBody').scrollHeight;
+}
+function sendMessage(){
+  const inp=$('#threadInput');const c=inp.value.trim();if(!c||!threadWith)return;
+  const o={id:uuid(),sender_id:me.id,receiver_id:threadWith,content:c,created_at:new Date().toISOString()};
+  DB.messages.push(o);sbErr(sb.from('messages').insert(o),'Bericht');inp.value='';renderThread();
+}
+
+/* ================= GROEPEN ================= */
+function groupById(id){return (DB.groups||[]).find(g=>g.id===id);}
+function isGroupMember(id){return (DB.groupMembers||[]).some(m=>m.group_id===id&&m.user_id===me.id);}
+function groupMemberCount(id){return (DB.groupMembers||[]).filter(m=>m.group_id===id).length;}
+function grpAv(g,cls){return g.avatar?`<div class="avatar ${cls}" style="background-image:url('${g.avatar}');background-size:cover;background-position:center"></div>`:`<div class="avatar ${cls}" style="background:linear-gradient(135deg,#8E4EC6,#5B6BFF)">${esc(initials(g.name))}</div>`;}
+function joinGroup(id){if(!isGroupMember(id)){const o={group_id:id,user_id:me.id,created_at:new Date().toISOString()};DB.groupMembers.push(o);sbErr(sb.from('group_members').insert(o),'Lid worden');}}
+function leaveGroup(id){DB.groupMembers=DB.groupMembers.filter(m=>!(m.group_id===id&&m.user_id===me.id));sbErr(sb.from('group_members').delete().eq('group_id',id).eq('user_id',me.id),'Verlaten');}
+function renderGroups(){
+  const el=$('#groupsList');const list=DB.groups||[];
+  const head=`<button class="btn btn-primary" id="newGroupBtn" style="width:100%;margin-bottom:12px">+ Nieuwe groep</button>`;
+  el.innerHTML=head+(list.length?list.map(g=>`<div class="person">${grpAv(g,'sm')}<div class="who" data-gopen="${g.id}"><div class="pn">${esc(g.name)}</div><div class="pb">${groupMemberCount(g.id)} leden</div></div>${isGroupMember(g.id)?`<button class="btn-following" data-gopen2="${g.id}">Open</button>`:`<button class="btn-follow" data-gjoin="${g.id}">Word lid</button>`}</div>`).join(''):`<div class="card empty">Nog geen groepen. Maak de eerste aan.</div>`);
+  $('#newGroupBtn').onclick=()=>openGroupModal();
+  el.querySelectorAll('[data-gopen]').forEach(b=>b.onclick=()=>openGroup(b.dataset.gopen));
+  el.querySelectorAll('[data-gopen2]').forEach(b=>b.onclick=()=>openGroup(b.dataset.gopen2));
+  el.querySelectorAll('[data-gjoin]').forEach(b=>b.onclick=()=>{joinGroup(b.dataset.gjoin);renderGroups();});
+}
+function openGroup(id){currentScreen='group';$('#app').classList.remove('thread-open');['Feed','People','Notifs','Profile','Saved','Chat','Thread','Groups','Group','Events','Event'].forEach(s=>{const e=$('#scr'+s);if(e)e.style.display=(s==='Group')?'block':'none';});document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));window.scrollTo(0,0);renderGroup(id);}
+function renderGroup(id){
+  const g=groupById(id);if(!g){setScreen('groups');return;}
+  const member=isGroupMember(id),owner=g.owner_id===me.id;
+  $('#groupHead').innerHTML=`<div class="prof-head"><div class="prof-cover"${g.cover?` style="background-image:url('${g.cover}');background-size:cover;background-position:center"`:''}></div><div class="prof-inner">${grpAv(g,'xl')}<div class="prof-name">${esc(g.name)}</div><div class="prof-bio">👥 Groep · ${groupMemberCount(id)} leden${g.about?'<br>'+esc(g.about):''}</div><div class="prof-actions"><button class="btn btn-line" id="grpBack" style="width:auto">← Terug</button>${owner?'':(member?`<button class="btn btn-line" id="grpToggle">Verlaten</button>`:`<button class="btn btn-primary" id="grpToggle" style="width:auto">Word lid</button>`)}</div></div></div>`;
+  $('#grpBack').onclick=()=>setScreen('groups');
+  const gt=$('#grpToggle');if(gt)gt.onclick=()=>{member?leaveGroup(id):joinGroup(id);renderGroup(id);};
+  if(member||owner){
+    $('#groupComposer').innerHTML=`<div class="card composer"><div class="row">${avatarHTML(me.id,myProfile.display_name,'sm')}<textarea id="grpBox" placeholder="Plaats iets in ${esc(g.name)}…" rows="1"></textarea></div><div class="foot"><span></span><button id="grpPost" class="btn-post" disabled>Plaatsen</button></div></div>`;
+    const b=$('#grpBox'),btn=$('#grpPost');b.addEventListener('input',()=>{b.style.height='auto';b.style.height=Math.min(b.scrollHeight,240)+'px';btn.disabled=!b.value.trim();});
+    btn.onclick=()=>{const c=b.value.trim();if(!c)return;const o={id:uuid(),user_id:me.id,group_id:id,page_id:null,content:c,created_at:new Date().toISOString(),image:null,video:null};DB.posts.unshift(o);sbErr(sb.from('posts').insert(o),'Plaatsen');renderGroup(id);};
+    const posts=DB.posts.filter(p=>p.group_id===id).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).map(postView);
+    $('#groupPosts').innerHTML=posts.length?posts.map(renderPost).join(''):`<div class="card empty">Nog geen berichten in deze groep.</div>`;
+    bindPosts($('#groupPosts'));
+  }else{$('#groupComposer').innerHTML=`<div class="card empty" style="padding:22px">Word lid om berichten te plaatsen en te lezen.</div>`;$('#groupPosts').innerHTML='';}
+}
+function openGroupModal(){$('#gmName').value='';$('#gmAbout').value='';$('#groupModal').classList.add('open');}
+
+/* ================= EVENEMENTEN ================= */
+function eventById(id){return (DB.events||[]).find(e=>e.id===id);}
+function isGoing(id){return (DB.eventGoing||[]).some(g=>g.event_id===id&&g.user_id===me.id);}
+function goingCount(id){return (DB.eventGoing||[]).filter(g=>g.event_id===id).length;}
+function toggleGoing(id){if(isGoing(id)){DB.eventGoing=DB.eventGoing.filter(g=>!(g.event_id===id&&g.user_id===me.id));sbErr(sb.from('event_going').delete().eq('event_id',id).eq('user_id',me.id),'Aanwezigheid');}else{const o={event_id:id,user_id:me.id,created_at:new Date().toISOString()};DB.eventGoing.push(o);sbErr(sb.from('event_going').insert(o),'Aanwezigheid');}}
+function fmtEventDate(iso){if(!iso)return 'Datum n.t.b.';const d=new Date(iso);return d.toLocaleDateString('nl-NL',{weekday:'short',day:'numeric',month:'long'})+' · '+d.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit'});}
+function renderEvents(){
+  const el=$('#eventsList');const list=(DB.events||[]).slice().sort((a,b)=>new Date(a.starts_at||0)-new Date(b.starts_at||0));
+  const head=`<button class="btn btn-primary" id="newEventBtn" style="width:100%;margin-bottom:12px">+ Nieuw evenement</button>`;
+  el.innerHTML=head+(list.length?list.map(e=>`<div class="card ev-card" data-event="${e.id}"><div class="ev-cover" style="${e.cover?`background-image:url('${e.cover}');background-size:cover;background-position:center`:'background:var(--grad)'}"></div><div class="ev-body"><div class="ev-title">${esc(e.title)}</div><div class="ev-when">${fmtEventDate(e.starts_at)}</div>${e.location?`<div class="ev-loc">📍 ${esc(e.location)}</div>`:''}<div class="ev-going">${goingCount(e.id)} gaan</div></div></div>`).join(''):`<div class="card empty">Nog geen evenementen. Maak het eerste aan.</div>`);
+  $('#newEventBtn').onclick=()=>openEventModal();
+  el.querySelectorAll('[data-event]').forEach(b=>b.onclick=()=>openEvent(b.dataset.event));
+}
+function openEvent(id){currentScreen='event';$('#app').classList.remove('thread-open');['Feed','People','Notifs','Profile','Saved','Chat','Thread','Groups','Group','Events','Event'].forEach(s=>{const e=$('#scr'+s);if(e)e.style.display=(s==='Event')?'block':'none';});document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));window.scrollTo(0,0);renderEvent(id);}
+function renderEvent(id){
+  const e=eventById(id);if(!e){setScreen('events');return;}
+  const going=isGoing(id),host=userById(e.owner_id);
+  $('#eventDetail').innerHTML=`<div class="prof-head"><div class="prof-cover"${e.cover?` style="background-image:url('${e.cover}');background-size:cover;background-position:center"`:''}></div><div class="prof-inner" style="margin-top:14px"><div class="prof-name">${esc(e.title)}</div><div class="ev-when" style="margin:6px 0">${fmtEventDate(e.starts_at)}</div>${e.location?`<div class="prof-bio">📍 ${esc(e.location)}</div>`:''}${e.description?`<div class="prof-bio">${esc(e.description)}</div>`:''}<div class="prof-bio" style="font-size:13px">Georganiseerd door <b data-user="${e.owner_id}" style="cursor:pointer">${esc(host.display_name)}</b> · ${goingCount(id)} gaan</div><div class="prof-actions"><button class="btn btn-line" id="evBack" style="width:auto">← Terug</button><button class="btn ${going?'btn-line':'btn-primary'}" id="evGo" style="width:auto">${going?'Ik ga niet meer':'Ik ben erbij'}</button></div></div></div>`;
+  $('#evBack').onclick=()=>setScreen('events');
+  $('#evGo').onclick=()=>{toggleGoing(id);renderEvent(id);};
+  const uu=$('#eventDetail [data-user]');if(uu)uu.onclick=()=>setScreen('profile',e.owner_id);
+}
+function openEventModal(){$('#emTitle').value='';$('#emDate').value='';$('#emLoc').value='';$('#emDesc').value='';$('#eventModal').classList.add('open');}
+
+/* ================= ALBUM ================= */
+function renderAlbum(userId){const el=$('#profileAlbum');if(!el)return;const imgs=DB.posts.filter(p=>p.user_id===userId&&!p.group_id&&p.image).slice(0,9);if(!imgs.length){el.innerHTML='';return;}el.innerHTML=`<div class="card" style="padding:14px;margin-bottom:16px"><b style="font-family:'Poppins';color:var(--navy);font-size:15px">Foto's</b><div class="album">${imgs.map(p=>`<div class="al" style="background-image:url('${p.image}')"></div>`).join('')}</div></div>`;}
+
+/* ================= modal handlers (chat/group/event) ================= */
+$('#threadSend').onclick=sendMessage;
+$('#threadInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage();});
+$('#gmCancel').onclick=()=>$('#groupModal').classList.remove('open');
+$('#groupModal').onclick=e=>{if(e.target.id==='groupModal')$('#groupModal').classList.remove('open');};
+$('#gmSave').onclick=async()=>{const name=$('#gmName').value.trim();if(!name){toast('Geef de groep een naam');return;}const g={id:uuid(),owner_id:me.id,name,about:$('#gmAbout').value.trim(),avatar:null,cover:null,created_at:new Date().toISOString()};DB.groups.unshift(g);DB.groupMembers.push({group_id:g.id,user_id:me.id,created_at:new Date().toISOString()});$('#groupModal').classList.remove('open');toast('Groep aangemaakt 🎉');await sbErr(sb.from('groups').insert(g),'Groep');await sbErr(sb.from('group_members').insert({group_id:g.id,user_id:me.id}),'Lid');openGroup(g.id);};
+$('#emCancel').onclick=()=>$('#eventModal').classList.remove('open');
+$('#eventModal').onclick=e=>{if(e.target.id==='eventModal')$('#eventModal').classList.remove('open');};
+$('#emSave').onclick=async()=>{const t=$('#emTitle').value.trim();if(!t){toast('Geef een titel');return;}const ev={id:uuid(),owner_id:me.id,title:t,description:$('#emDesc').value.trim(),location:$('#emLoc').value.trim(),starts_at:$('#emDate').value?new Date($('#emDate').value).toISOString():null,cover:null,created_at:new Date().toISOString()};DB.events.unshift(ev);DB.eventGoing.push({event_id:ev.id,user_id:me.id,created_at:new Date().toISOString()});$('#eventModal').classList.remove('open');toast('Evenement aangemaakt 🎉');await sbErr(sb.from('events').insert(ev),'Evenement');await sbErr(sb.from('event_going').insert({event_id:ev.id,user_id:me.id}),'Aanwezigheid');openEvent(ev.id);};
+
 $('#btnLogout').onclick=async()=>{await sb.auth.signOut();me=null;showView('landing');};
 
 /* ---------- pages ---------- */

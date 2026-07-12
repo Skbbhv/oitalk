@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>oitalk — connect · communicate · grow</title>
+<meta name="description" content="oitalk is het sociale netwerk om te delen wat je bezighoudt, mee te praten en je kring te laten groeien. Gratis en in een minuut geregeld.">
+<link rel="icon" href="data:image/webp;base64,UklGRuQEAABXRUJQVlA4INgEAAAQHACdASpAAEAAPjEWiEKiISEVDM6IIAMEtQBnq1A473goxc6zv133AdoDxJ/oA7injHf4DpT/wA+QD9Gusl9A39jvSl/bf4Kv2s/bD2r7vm+89Dl5J9mP2jzAj4j8l/yO92O8H3SfxHkq/wf458ATib/Pflz5Tf7B6Ad5n+jf4T8h/Zrvp6AH5l/4vse/xX/B+1X2m/Mf+c/Nj6Bv5T/QP9n+ZnxY9Sz+2jf9GyrhYFnVrGV/iQpOBOnptkby5iS01JOSWUj15exNOJkaOHl96oXYJA5ONJ5Hcl7sHDWuuTNI77d7LWGQwAD+/3cyVhz5DFk86enfPMIsbLjK/vSG1D98LFCj2KC0/DStxGXDgFR3J/xLfgSm+mxqO5LvyIj4016HAkX/LkeD5DWPVIrULc4D/+78u/71X01e2sj9lfDJNbPQWoQ+FjJJw5poLBxOpxVNpDEUf6gq/yOs2x4eM3237fhnDOJXWhNpwOmT4c8z8yCfyyzIp5BFwB+NNf/v27upSsgO+MuwSLapH1O+umBdP0wX3+SOC+L6/6lZeWSlA1Va58zwasQ9C/n1tqZnJRwEKq5a0DThHffhDYW951l3bDIg8NT9TH81QRNAZTfWeEB2yCRMsC5Whmvet8+CLxJHzkrcofBB8BNVZELn/+lmTFSmqYPI5k3H2y/1i9hchNCKn5YtRIrilDAX1+r7eJqLGPwT/3TsvK564t07IheOzwsHsLeXtAbURKTrosEWd9tzVFKKFXj8ckzpjUJO/6uo0dsK9jmL/NWaIPcxmOCOeJpqpP8u+dG0FzR5SwtT1l+iP4DB9x2nqoERqXHN+o1p4gIM8rQs5wJ6adpEOkN+Ay0eHmJhu9cHL8/pruv3yxYHJerDyMIlT2KsyeYTFnm42Ptgf7sup/vDLWpHuuRXugkN/xrvOE3T9NpGA58B2fpo9+DjAYJDkTFofgN7aw2VVWgfPQgFID7uKJ3/6BX5wp+GInk4/gIutja3q+LXgoEr+ggEok+4v7/9Qkm9jBPqy6Y0qhw2ZfYcUwXbBKyyLOCu5IP3E5//mqdDKvNW9a/+QffXaN/xmTrqXuLF/Ae3Q6fDE9tLoP3NV85Rp/HAcd9XAyT83cHlgLy3PAlQM7OSPnoyrzppjk6i+qdSy9JkNoIbpSzeU4Pv19eURPBE37LKYcdZJ1v9ya9A6ggibjMxjHfACv0o0WdILR5Iq5oQubcwLzACY4X6KsR+5v/q1tS+pfFKJtCH7/7S2vjtyRWAHw+utscv/3S+N36W902eGgL7/9sf6edMBeT1UsAh51ocAKUSUxqh5dohAmJu2GufuEVlcB2kp/IGmD3l3aHmFPHDf2wvQ/6TB+c4W2dTOQrjeXWwVns+sOw8j1FwAl0gCEZDKACZ+07vpHKDn+FnAIMdcfKSMGf73y1kWaCBN738wwZj/awE8NaJny80ADNDk8c7IwSL9a/cf8iwV3aVDdkff0brIOf3Qdwxxwfyf6I9CM1Q0hVIE3rMPjVp1zawnZ+knZ60rM31/bp2XMoOL5q9BaBHC6DXY7xu6bgSz7ZUSTXWZQn2yAmgNcZxoz19fUxC6j9n0tsJ8JoUH5GO6tA0kC5NZ/3rZggrsBJWDV1ZrPT2nEyIJzLiAhlrrxlsIMAA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2E7DF0; --sky:#4DA6FF; --navy:#0F1B33; --teal:#12A594;
+    --grad:linear-gradient(135deg,#2E7DF0 0%,#4DA6FF 100%);
+    --grad-soft:linear-gradient(135deg,#E9F1FF 0%,#F4F8FF 100%);
+    --bg:#EDF2FA; --card:#FFFFFF; --line:#E3E9F3;
+    --ink:#16223B; --muted:#64748B;
+    --shadow:0 1px 2px rgba(16,27,51,.04),0 10px 30px rgba(16,27,51,.07);
+    --shadow-lg:0 20px 60px rgba(23,54,110,.16);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;cursor:pointer}
+  input,textarea{font-family:inherit}
+  a{color:var(--blue);text-decoration:none}
+  h1,h2,h3{font-family:'Poppins',sans-serif;letter-spacing:-.02em;margin:0}
+
+  .wordmark{font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:-.02em;font-size:22px;line-height:1}
+  .wordmark .oi{color:var(--blue)} .wordmark .talk{color:var(--navy)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;
+    border-radius:12px;font-weight:600;font-size:15px;padding:12px 20px;transition:transform .08s,box-shadow .18s,opacity .15s;white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(46,125,240,.30)}
+  .btn-primary:hover{box-shadow:0 12px 26px rgba(46,125,240,.38)}
+  .btn-primary:disabled{opacity:.6;cursor:default;box-shadow:none}
+  .btn-white{background:#fff;color:var(--blue);border:1.5px solid var(--line)}
+  .btn-white:hover{border-color:var(--blue)}
+  .btn-ghost{background:transparent;color:var(--navy)}
+  .btn-lg{padding:15px 30px;font-size:16.5px;border-radius:14px}
+
+  /* ============ LANDING ============ */
+  #landing{display:block}
+
+  .lp-nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.82);
+    backdrop-filter:saturate(1.5) blur(12px);border-bottom:1px solid var(--line)}
+  .lp-nav-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:13px 22px}
+  .lp-nav .brand{display:flex;align-items:center;gap:9px;flex:1}
+  .lp-nav .brand img{width:32px;height:32px}
+  .lp-nav .links{display:flex;align-items:center;gap:22px}
+  .lp-nav .links a{color:var(--navy);font-weight:500;font-size:14.5px}
+  .lp-nav .links a:hover{color:var(--blue)}
+  .lp-nav .btn{padding:9px 16px;font-size:14px}
+  @media(max-width:720px){.lp-nav .links a{display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;
+    background:radial-gradient(900px 500px at 78% -8%,#DCEAFF 0%,rgba(237,242,250,0) 60%),var(--bg)}
+  .hero-in{max-width:1080px;margin:0 auto;padding:70px 22px 60px;display:grid;
+    grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    color:var(--blue);font-weight:600;font-size:13px;padding:6px 13px;border-radius:100px;margin-bottom:20px;box-shadow:var(--shadow)}
+  .eyebrow .pip{width:7px;height:7px;border-radius:50%;background:var(--grad)}
+  .hero h1{font-size:clamp(34px,5vw,54px);font-weight:900;line-height:1.05;color:var(--navy)}
+  .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p.lead{font-size:18.5px;color:#3A4A66;margin:22px 0 30px;max-width:520px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-note{margin-top:16px;font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .hero-note svg{width:16px;height:16px;color:var(--teal)}
+
+  /* hero preview card */
+  .preview{position:relative}
+  .preview .glow{position:absolute;inset:-30px;background:radial-gradient(closest-side,rgba(77,166,255,.35),transparent);filter:blur(20px);z-index:0}
+  .device{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow-lg);padding:16px;max-width:390px;margin-left:auto}
+  .device-bar{display:flex;align-items:center;gap:8px;padding:2px 4px 12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+  .device-bar .wordmark{font-size:17px}
+  .device-bar .sp{flex:1}
+  .device-bar .cir{width:26px;height:26px;border-radius:50%;background:#EDF2FA}
+  .mini-post{display:flex;gap:10px;padding:11px 4px}
+  .mini-post+.mini-post{border-top:1px solid var(--line)}
+  .mini-av{width:36px;height:36px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-weight:700;font-family:'Poppins';font-size:13px}
+  .mini-body{flex:1;min-width:0}
+  .mini-name{font-weight:600;font-size:14px}
+  .mini-time{font-size:11.5px;color:var(--muted)}
+  .mini-text{font-size:14px;margin:3px 0 8px}
+  .mini-acts{display:flex;gap:16px;font-size:12.5px;color:var(--muted);font-weight:500}
+  .mini-acts .on{color:var(--blue)}
+  .mini-acts span{display:inline-flex;align-items:center;gap:5px}
+  .mini-acts svg{width:15px;height:15px}
+  .float{position:absolute;z-index:2;background:#fff;border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow);padding:10px 14px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .float .em{font-size:16px}
+  .f1{top:6px;left:-18px;color:var(--navy);animation:bob 4s ease-in-out infinite}
+  .f2{bottom:20px;left:-26px;color:var(--navy);animation:bob 4.6s ease-in-out infinite .4s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+  /* logo strip / value line */
+  .valueline{background:var(--navy);color:#fff}
+  .valueline-in{max-width:1080px;margin:0 auto;padding:20px 22px;display:flex;flex-wrap:wrap;gap:10px 34px;
+    justify-content:center;align-items:center;font-weight:600;font-size:15px;letter-spacing:.01em}
+  .valueline .dot{width:6px;height:6px;border-radius:50%;background:var(--sky)}
+  .valueline b{color:var(--sky);font-weight:700}
+
+  /* sections */
+  section.block{max-width:1080px;margin:0 auto;padding:76px 22px}
+  .sec-head{text-align:center;max-width:620px;margin:0 auto 46px}
+  .sec-head .tag{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;color:var(--navy);margin:10px 0 12px}
+  .sec-head p{font-size:17px;color:#3A4A66}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .feature{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .18s}
+  .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .feature .ic{width:48px;height:48px;border-radius:13px;background:var(--grad-soft);display:grid;place-items:center;margin-bottom:16px;color:var(--blue)}
+  .feature .ic svg{width:24px;height:24px}
+  .feature h3{font-size:18.5px;color:var(--navy);margin-bottom:8px}
+  .feature p{font-size:15px;color:#4A5A76;margin:0}
+
+  /* steps */
+  .steps-wrap{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .step{text-align:center;padding:8px}
+  .step .num{width:52px;height:52px;margin:0 auto 16px;border-radius:50%;background:var(--grad);color:#fff;
+    display:grid;place-items:center;font-family:'Poppins';font-weight:800;font-size:22px;box-shadow:0 8px 18px rgba(46,125,240,.28)}
+  .step h3{font-size:18px;color:var(--navy);margin-bottom:6px}
+  .step p{font-size:15px;color:#4A5A76;margin:0}
+
+  /* cta band */
+  .cta-band{position:relative;overflow:hidden;background:var(--navy);border-radius:26px;
+    padding:56px 40px;text-align:center;box-shadow:var(--shadow-lg)}
+  .cta-band::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(500px 260px at 20% 0%,rgba(46,125,240,.55),transparent 60%),
+    radial-gradient(500px 300px at 90% 110%,rgba(77,166,255,.5),transparent 55%)}
+  .cta-band>*{position:relative;z-index:1}
+  .cta-band h2{color:#fff;font-size:clamp(26px,3.6vw,40px);font-weight:800;margin-bottom:12px}
+  .cta-band p{color:#C9D8F2;font-size:18px;margin:0 auto 28px;max-width:520px}
+  .cta-band .btn-primary{background:#fff;color:var(--blue)}
+
+  footer.lp-foot{border-top:1px solid var(--line);background:#fff}
+  .foot-in{max-width:1080px;margin:0 auto;padding:34px 22px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+  .foot-in .brand{display:flex;align-items:center;gap:9px}
+  .foot-in .brand img{width:28px;height:28px}
+  .foot-in .tl{color:var(--muted);font-size:13.5px}
+  .foot-in .cp{color:var(--muted);font-size:13px}
+
+  @media(max-width:860px){
+    .hero-in{grid-template-columns:1fr;gap:40px;padding:48px 22px 40px}
+    .preview{order:2;max-width:400px;margin:0 auto}
+    .device{margin:0 auto}
+    .features,.steps{grid-template-columns:1fr}
+    section.block{padding:56px 22px}
+    .cta-band{padding:44px 26px;border-radius:20px}
+  }
+
+  /* ============ APP (auth + feed) ============ */
+  #authScreen,#app{display:none}
+  .auth-wrap{min-height:100dvh;display:grid;place-items:center;padding:24px;
+    background:radial-gradient(1200px 600px at 50% -10%,#DCEBFF 0%,var(--bg) 55%)}
+  .auth-card{width:100%;max-width:400px;background:var(--card);border:1px solid var(--line);
+    border-radius:24px;box-shadow:var(--shadow-lg);padding:34px 30px;text-align:center;position:relative}
+  .auth-back{position:absolute;top:16px;left:16px;background:none;border:none;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:5px;padding:6px}
+  .auth-back:hover{color:var(--blue)}
+  .auth-logo{width:110px;height:110px;object-fit:contain;margin:6px auto 4px;display:block}
+  .auth-title{font-family:'Poppins';font-weight:700;font-size:20px;color:var(--navy);margin-bottom:4px}
+  .auth-sub{font-size:14px;color:var(--muted);margin-bottom:22px}
+  .field{text-align:left;margin-bottom:14px}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .field input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s;background:#fff}
+  .field input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(46,125,240,.12)}
+  .auth-card .btn-primary{width:100%}
+  .switch{margin-top:18px;font-size:14px;color:var(--muted)}
+  .switch button{background:none;border:none;color:var(--blue);font-weight:600;font-size:14px;padding:0}
+  .msg{font-size:13.5px;margin-top:12px;min-height:18px}
+  .msg.err{color:#DC2A45} .msg.ok{color:#16A34A}
+  .demo-hint{font-size:12px;color:var(--muted);background:#F1F5FB;border:1px solid var(--line);border-radius:10px;padding:8px 11px;margin-top:16px}
+  .demo-hint b{color:var(--navy)}
+
+  header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  .top-in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:12px 18px}
+  .top-in .brand{display:flex;align-items:center;gap:9px;flex:1}
+  .top-in .brand img{width:30px;height:30px;object-fit:contain}
+  .me{display:flex;align-items:center;gap:9px}
+  .icon-btn{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--muted);transition:background .15s,color .15s}
+  .icon-btn:hover{background:#F3F7FD;color:var(--blue)}
+  main.feed{max-width:640px;margin:0 auto;padding:18px 18px 80px}
+
+  .avatar{border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;flex:none;font-family:'Poppins',sans-serif;user-select:none}
+  .avatar.sm{width:38px;height:38px;font-size:14px}
+  .avatar.xs{width:30px;height:30px;font-size:12px}
+  .avatar.lg{width:56px;height:56px;font-size:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .composer{padding:16px;margin-bottom:18px}
+  .composer .row{display:flex;gap:12px}
+  .composer textarea{flex:1;border:none;resize:none;font-size:16px;outline:none;min-height:52px;background:transparent;color:var(--ink);padding-top:7px}
+  .composer textarea::placeholder{color:#9AA7BD}
+  .composer .foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-left:50px}
+  .count{font-size:12.5px;color:var(--muted)}
+  .btn-post{background:var(--grad);color:#fff;border:none;border-radius:11px;font-weight:600;padding:9px 20px;font-size:14.5px;box-shadow:0 4px 12px rgba(46,125,240,.25)}
+  .btn-post:disabled{opacity:.45;cursor:default;box-shadow:none}
+  .post{padding:16px;margin-bottom:14px}
+  .post-head{display:flex;align-items:center;gap:11px}
+  .post-head .who{flex:1;min-width:0}
+  .post-head .name{font-weight:600;font-size:15px;color:var(--ink)}
+  .post-head .time{font-size:12.5px;color:var(--muted)}
+  .post-del{background:none;border:none;color:#B7C1D4;font-size:18px;line-height:1;padding:4px 6px;border-radius:8px}
+  .post-del:hover{color:#DC2A45;background:#FDECEF}
+  .post-body{font-size:15.5px;margin:11px 0 4px;white-space:pre-wrap;word-wrap:break-word}
+  .post-actions{display:flex;gap:6px;border-top:1px solid var(--line);margin-top:12px;padding-top:8px}
+  .act{display:flex;align-items:center;gap:7px;background:none;border:none;color:var(--muted);font-size:14px;font-weight:500;padding:8px 12px;border-radius:10px;transition:background .15s,color .15s}
+  .act:hover{background:#F3F7FD}
+  .act.liked{color:var(--blue)}
+  .act svg{width:18px;height:18px}
+  .comments{margin-top:10px;border-top:1px solid var(--line);padding-top:12px;display:none}
+  .comments.open{display:block}
+  .comment{display:flex;gap:9px;margin-bottom:10px}
+  .comment .bubble{background:#F1F5FB;border-radius:13px;padding:8px 12px;flex:1}
+  .comment .cname{font-weight:600;font-size:13px}
+  .comment .ctext{font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+  .comment .ctime{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .add-comment{display:flex;gap:9px;margin-top:6px}
+  .add-comment input{flex:1;border:1.5px solid var(--line);border-radius:20px;padding:9px 14px;font-size:14px;outline:none}
+  .add-comment input:focus{border-color:var(--blue)}
+  .add-comment button{border:none;background:var(--grad);color:#fff;border-radius:50%;width:38px;height:38px;flex:none;display:grid;place-items:center}
+  .empty{text-align:center;color:var(--muted);padding:50px 20px}
+  .empty .big{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:6px}
+  .modal-bg{position:fixed;inset:0;background:rgba(15,27,51,.45);display:none;place-items:center;z-index:50;padding:20px}
+  .modal-bg.open{display:grid}
+  .modal{width:100%;max-width:420px;background:#fff;border-radius:20px;padding:26px;box-shadow:var(--shadow-lg)}
+  .modal h3{margin:0 0 18px;font-family:'Poppins',sans-serif;font-size:19px}
+  .modal .profile-top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .modal textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;font-size:15px;resize:vertical;min-height:70px;outline:none}
+  .modal textarea:focus,.modal input:focus{border-color:var(--blue)}
+  .modal-actions{display:flex;gap:10px;margin-top:20px}
+  .modal-actions .btn{flex:1}
+  .btn-line{background:#fff;border:1.5px solid var(--line);color:var(--muted)}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--navy);color:#fff;padding:12px 20px;border-radius:12px;font-size:14px;font-weight:500;z-index:100;transition:transform .25s,opacity .25s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+  @media(max-width:480px){.composer .foot{padding-left:0}main.feed{padding:14px 12px 80px}.top-in{padding:11px 14px}}
+  /* ---- richer app additions ---- */
+  main.feed{padding-bottom:92px}
+  .screen{animation:fade .2s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .scr-title{font-family:'Poppins';font-size:21px;color:var(--navy);margin:2px 2px 16px}
+
+  .suggest{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 16px;scrollbar-width:none}
+  .suggest::-webkit-scrollbar{display:none}
+  .sug-label{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.02em;margin:2px 2px 8px}
+  .sug-card{flex:none;width:134px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:15px 12px;text-align:center}
+  .sug-card .avatar{margin:0 auto 9px}
+  .sug-name{font-weight:600;font-size:13.5px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+  .sug-bio{font-size:11.5px;color:var(--muted);height:29px;overflow:hidden;margin:3px 0 9px;line-height:1.25}
+  .sug-follow{width:100%;border:none;background:var(--grad);color:#fff;border-radius:9px;padding:7px;font-size:13px;font-weight:600}
+
+  .composer .foot{align-items:center}
+  .composer .tools{display:flex;gap:6px}
+  .tool{background:#F3F7FD;border:none;border-radius:9px;padding:7px 11px;font-size:13px;font-weight:600;color:var(--navy);display:inline-flex;align-items:center;gap:5px}
+  .tool:hover{background:#E7F0FC}
+  .foot-right{display:flex;align-items:center;gap:12px}
+  .composer-preview{position:relative;margin:12px 0 0 50px}
+  .composer-preview img{max-width:100%;border-radius:12px;border:1px solid var(--line);display:block}
+  .composer-preview .rm{position:absolute;top:8px;right:8px;background:rgba(15,27,51,.72);color:#fff;border:none;width:28px;height:28px;border-radius:50%;font-size:15px;cursor:pointer}
+
+  .feed-tabs{display:flex;gap:6px;margin-bottom:14px}
+  .ftab{flex:1;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px;font-weight:600;font-size:14px;color:var(--muted)}
+  .ftab.active{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(46,125,240,.22)}
+
+  .post-img{width:100%;border-radius:12px;margin:10px 0 2px;border:1px solid var(--line);display:block}
+  .clickable{cursor:pointer}
+  .post-menu-wrap{position:relative}
+  .post-menu{position:absolute;right:0;top:34px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);overflow:hidden;z-index:15;min-width:158px;display:none}
+  .post-menu.open{display:block}
+  .post-menu button{display:flex;width:100%;gap:9px;align-items:center;padding:11px 14px;background:none;border:none;font-size:14px;color:var(--ink);text-align:left;cursor:pointer}
+  .post-menu button:hover{background:#F3F7FD}
+  .post-menu button.danger{color:#DC2A45}
+  .post-menu svg{width:16px;height:16px}
+  .post-edit textarea{width:100%;border:1.5px solid var(--blue);border-radius:12px;padding:10px 12px;font-size:15px;resize:vertical;min-height:64px;outline:none;margin:10px 0}
+  .post-edit .ea{display:flex;gap:8px;justify-content:flex-end}
+  .react-summary{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);padding:9px 2px 0}
+  .react-summary .emos{font-size:15px;letter-spacing:-4px;padding-right:4px}
+
+  .react-picker{position:fixed;display:none;background:#fff;border:1px solid var(--line);border-radius:100px;box-shadow:var(--shadow-lg);padding:6px 9px;gap:5px;z-index:60}
+  .react-picker.open{display:flex}
+  .react-picker button{border:none;background:none;font-size:26px;line-height:1;padding:3px;border-radius:50%;transition:transform .12s;cursor:pointer}
+  .react-picker button:hover{transform:scale(1.4) translateY(-3px)}
+
+  .emoji-pop{position:fixed;display:none;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);padding:10px;grid-template-columns:repeat(6,1fr);gap:2px;z-index:60}
+  .emoji-pop.open{display:grid}
+  .emoji-pop button{border:none;background:none;font-size:21px;padding:5px;border-radius:8px;cursor:pointer}
+  .emoji-pop button:hover{background:#F3F7FD}
+
+  .search-wrap{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:16px}
+  .search-wrap svg{width:18px;height:18px;color:var(--muted);flex:none}
+  .search-wrap input{border:none;outline:none;font-size:15px;flex:1;background:transparent;color:var(--ink)}
+  .person{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .person .who{flex:1;min-width:0;cursor:pointer}
+  .person .pn{font-weight:600;font-size:15px;color:var(--navy)}
+  .person .pb{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .btn-follow{border:none;background:var(--grad);color:#fff;border-radius:10px;padding:8px 16px;font-size:13.5px;font-weight:600;flex:none;cursor:pointer}
+  .btn-following{background:#fff;border:1.5px solid var(--line);color:var(--muted);border-radius:10px;padding:7px 15px;font-size:13.5px;font-weight:600;flex:none;cursor:pointer}
+
+  .notif{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .notif.unread{background:#F2F8FF;border-color:#CFE1FB}
+  .notif .nt{flex:1;font-size:14.5px;line-height:1.35}
+  .notif .nt b{font-weight:600}
+  .notif .ntime{font-size:12px;color:var(--muted);margin-top:2px}
+  .notif .nic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:16px;flex:none}
+
+  .prof-head{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px}
+  .prof-cover{height:104px;background:var(--grad)}
+  .prof-inner{padding:0 18px 18px;margin-top:-42px}
+  .prof-inner .avatar.xl{width:84px;height:84px;font-size:30px;border:4px solid #fff;box-shadow:var(--shadow)}
+  .prof-name{font-family:'Poppins';font-weight:700;font-size:22px;color:var(--navy);margin-top:10px}
+  .prof-bio{font-size:14.5px;color:#42506B;margin:5px 0 12px}
+  .prof-stats{display:flex;gap:24px;margin-bottom:15px}
+  .prof-stats .st b{font-family:'Poppins';font-weight:700;font-size:17px;color:var(--navy)}
+  .prof-stats .st span{font-size:13px;color:var(--muted);margin-left:5px}
+  .prof-actions{display:flex;gap:10px}
+  .prof-actions .btn{padding:10px 18px}
+
+  .bottomnav{position:fixed;bottom:0;left:0;right:0;z-index:25;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:none;padding:6px 4px}
+  #app.on .bottomnav{display:flex}
+  .navbtn{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;color:var(--muted);font-size:11px;font-weight:600;position:relative;cursor:pointer}
+  .navbtn svg{width:23px;height:23px}
+  .navbtn.active{color:var(--blue)}
+  .navbtn .badge{position:absolute;top:-1px;right:calc(50% - 22px);background:#E5484D;color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:9px;display:none;place-items:center;padding:0 4px}
+  .navbtn .badge.show{display:grid}
+
+  .seg{display:flex;gap:6px;margin-bottom:14px}
+  .segbtn{flex:1;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px;font-weight:600;font-size:14px;color:var(--muted);cursor:pointer}
+  .segbtn.active{background:var(--navy);color:#fff;border-color:transparent}
+  #pgmCat{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;outline:none;background:#fff;color:var(--ink);-webkit-appearance:none;appearance:none}
+  #pgmCat:focus{border-color:var(--blue)}
+.stories{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 14px;scrollbar-width:none}
+  .stories::-webkit-scrollbar{display:none}
+  .story{flex:none;width:92px;height:132px;border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--shadow);border:1px solid var(--line);cursor:pointer;background:#dfe7f2}
+  .story .sav{position:absolute;inset:0;background-size:cover;background-position:center}
+  .story .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55))}
+  .story .ring{position:absolute;top:8px;left:8px;width:36px;height:36px;border-radius:50%;border:3px solid #fff;display:grid;place-items:center;color:#fff;font-weight:700;font-family:'Poppins';font-size:12px;background:var(--blue)}
+  .story .lbl{position:absolute;bottom:7px;left:7px;right:7px;color:#fff;font-size:11.5px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .story.mine{background:#fff}
+  .story.mine .top{position:absolute;top:0;left:0;right:0;height:84px;background-size:cover;background-position:center}
+  .story.mine .plus{position:absolute;top:70px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:19px;border:3px solid #fff;z-index:2}
+  .story.mine .lbl{color:var(--navy);text-shadow:none;bottom:9px;text-align:center}
+  .shortcuts{display:flex;gap:8px;overflow-x:auto;padding:0 2px 14px;scrollbar-width:none}
+  .shortcuts::-webkit-scrollbar{display:none}
+  .chip{flex:none;background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 15px;font-size:13.5px;font-weight:600;color:var(--navy);box-shadow:var(--shadow);cursor:pointer}
+  .chip:hover{background:#F3F7FD;color:var(--blue)}
+  .freq-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;margin-bottom:16px}
+  .freq-card h4{margin:0 0 12px;font-family:'Poppins';font-size:15px;color:var(--navy)}
+  .freq{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+  .freq:last-child{margin-bottom:0}
+  .freq .who{flex:1;min-width:0;cursor:pointer}
+  .freq .fn{font-weight:600;font-size:14.5px;color:var(--navy)}
+  .freq .fa{display:flex;gap:7px}
+  .freq .fa .btn{padding:7px 13px}
+  .act.saved{color:var(--blue)}
+  .post-video{width:100%;border-radius:12px;margin:10px 0 2px;border:1px solid var(--line);display:block;background:#000;max-height:520px}
+  .composer-preview video{max-width:100%;border-radius:12px;border:1px solid var(--line);display:block}
+  .cover-prev{height:84px;border-radius:12px;background:var(--grad);margin-bottom:10px;border:1px solid var(--line)}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<!-- ================= LANDING ================= -->
+<div id="landing">
+  <nav class="lp-nav">
+    <div class="lp-nav-in">
+      <div class="brand"><img src="data:image/webp;base64,UklGRuQEAABXRUJQVlA4INgEAAAQHACdASpAAEAAPjEWiEKiISEVDM6IIAMEtQBnq1A473goxc6zv133AdoDxJ/oA7injHf4DpT/wA+QD9Gusl9A39jvSl/bf4Kv2s/bD2r7vm+89Dl5J9mP2jzAj4j8l/yO92O8H3SfxHkq/wf458ATib/Pflz5Tf7B6Ad5n+jf4T8h/Zrvp6AH5l/4vse/xX/B+1X2m/Mf+c/Nj6Bv5T/QP9n+ZnxY9Sz+2jf9GyrhYFnVrGV/iQpOBOnptkby5iS01JOSWUj15exNOJkaOHl96oXYJA5ONJ5Hcl7sHDWuuTNI77d7LWGQwAD+/3cyVhz5DFk86enfPMIsbLjK/vSG1D98LFCj2KC0/DStxGXDgFR3J/xLfgSm+mxqO5LvyIj4016HAkX/LkeD5DWPVIrULc4D/+78u/71X01e2sj9lfDJNbPQWoQ+FjJJw5poLBxOpxVNpDEUf6gq/yOs2x4eM3237fhnDOJXWhNpwOmT4c8z8yCfyyzIp5BFwB+NNf/v27upSsgO+MuwSLapH1O+umBdP0wX3+SOC+L6/6lZeWSlA1Va58zwasQ9C/n1tqZnJRwEKq5a0DThHffhDYW951l3bDIg8NT9TH81QRNAZTfWeEB2yCRMsC5Whmvet8+CLxJHzkrcofBB8BNVZELn/+lmTFSmqYPI5k3H2y/1i9hchNCKn5YtRIrilDAX1+r7eJqLGPwT/3TsvK564t07IheOzwsHsLeXtAbURKTrosEWd9tzVFKKFXj8ckzpjUJO/6uo0dsK9jmL/NWaIPcxmOCOeJpqpP8u+dG0FzR5SwtT1l+iP4DB9x2nqoERqXHN+o1p4gIM8rQs5wJ6adpEOkN+Ay0eHmJhu9cHL8/pruv3yxYHJerDyMIlT2KsyeYTFnm42Ptgf7sup/vDLWpHuuRXugkN/xrvOE3T9NpGA58B2fpo9+DjAYJDkTFofgN7aw2VVWgfPQgFID7uKJ3/6BX5wp+GInk4/gIutja3q+LXgoEr+ggEok+4v7/9Qkm9jBPqy6Y0qhw2ZfYcUwXbBKyyLOCu5IP3E5//mqdDKvNW9a/+QffXaN/xmTrqXuLF/Ae3Q6fDE9tLoP3NV85Rp/HAcd9XAyT83cHlgLy3PAlQM7OSPnoyrzppjk6i+qdSy9JkNoIbpSzeU4Pv19eURPBE37LKYcdZJ1v9ya9A6ggibjMxjHfACv0o0WdILR5Iq5oQubcwLzACY4X6KsR+5v/q1tS+pfFKJtCH7/7S2vjtyRWAHw+utscv/3S+N36W902eGgL7/9sf6edMBeT1UsAh51ocAKUSUxqh5dohAmJu2GufuEVlcB2kp/IGmD3l3aHmFPHDf2wvQ/6TB+c4W2dTOQrjeXWwVns+sOw8j1FwAl0gCEZDKACZ+07vpHKDn+FnAIMdcfKSMGf73y1kWaCBN738wwZj/awE8NaJny80ADNDk8c7IwSL9a/cf8iwV3aVDdkff0brIOf3Qdwxxwfyf6I9CM1Q0hVIE3rMPjVp1zawnZ+knZ60rM31/bp2XMoOL5q9BaBHC6DXY7xu6bgSz7ZUSTXWZQn2yAmgNcZxoz19fUxC6j9n0tsJ8JoUH5GO6tA0kC5NZ/3rZggrsBJWDV1ZrPT2nEyIJzLiAhlrrxlsIMAA" alt=""><span class="wordmark"><span class="oi">oi</span><span class="talk">talk</span></span></div>
+      <div class="links">
+        <a href="#waarom">Waarom oitalk</a>
+        <a href="#hoe">Zo werkt het</a>
+        <button class="btn btn-ghost" data-auth="login">Inloggen</button>
+        <button class="btn btn-primary" data-auth="signup">Gratis aanmelden</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-in">
+      <div>
+        <span class="eyebrow"><span class="pip"></span> Nieuw · gratis om te starten</span>
+        <h1>Deel je verhaal.<br>Praat mee. <span class="g">Groei je kring.</span></h1>
+        <p class="lead">oitalk is de plek waar je deelt wat je bezighoudt, reageert op anderen en in contact komt met mensen die je verhaal willen horen. Simpel, snel en zonder gedoe.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary btn-lg" data-auth="signup">Maak gratis je account</button>
+          <a class="btn btn-white btn-lg" href="#hoe">Zo werkt het</a>
+        </div>
+        <div class="hero-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          In één minuut geregeld · geen kosten · direct beginnen
+        </div>
+      </div>
+
+      <div class="preview">
+        <div class="glow"></div>
+        <div class="float f1"><span class="em">💬</span> Nieuwe reactie</div>
+        <div class="float f2"><span class="em">👍</span> Sanne vindt dit leuk</div>
+        <div class="device">
+          <div class="device-bar"><span class="wordmark"><span class="oi">oi</span><span class="talk">talk</span></span><span class="sp"></span><span class="cir"></span></div>
+          <div class="mini-post">
+            <div class="mini-av" style="background:#2E7DF0">SB</div>
+            <div class="mini-body">
+              <div class="mini-name">Sanne Bakker <span class="mini-time">· 2 uur</span></div>
+              <div class="mini-text">Net oitalk ontdekt — ziet er strak uit 👀</div>
+              <div class="mini-acts"><span class="on"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21l-1.4-1.3C5.4 15 2 11.9 2 8.1 2 5.4 4.1 3.3 6.8 3.3c1.5 0 3 .7 3.9 1.9.9-1.2 2.4-1.9 3.9-1.9 2.7 0 4.8 2.1 4.8 4.8 0 3.8-3.4 6.9-8.6 11.6L12 21z"/></svg> 2</span><span>💬 1 reactie</span></div>
+            </div>
+          </div>
+          <div class="mini-post">
+            <div class="mini-av" style="background:#12A594">FE</div>
+            <div class="mini-body">
+              <div class="mini-name">Fatima El Amrani <span class="mini-time">· 5 uur</span></div>
+              <div class="mini-text">Iemand hier ook uit het noorden? Altijd leuk om mensen in de buurt te spreken.</div>
+              <div class="mini-acts"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21l-1.4-1.3C5.4 15 2 11.9 2 8.1 2 5.4 4.1 3.3 6.8 3.3c1.5 0 3 .7 3.9 1.9.9-1.2 2.4-1.9 3.9-1.9 2.7 0 4.8 2.1 4.8 4.8 0 3.8-3.4 6.9-8.6 11.6L12 21z"/></svg> 1</span><span>💬 reageren</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="valueline">
+    <div class="valueline-in">
+      <span><b>Connect</b> — kom in contact</span><span class="dot"></span>
+      <span><b>Communicate</b> — praat mee</span><span class="dot"></span>
+      <span><b>Grow</b> — laat je kring groeien</span>
+    </div>
+  </div>
+
+  <section class="block" id="waarom">
+    <div class="sec-head">
+      <span class="tag">Waarom oitalk</span>
+      <h2>Alles wat je nodig hebt om mee te doen</h2>
+      <p>Geen ingewikkelde functies, geen ruis. Gewoon een fijne plek om te delen en te praten.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+        <h3>Deel je moment</h3>
+        <p>Plaats in seconden wat je bezighoudt. Een gedachte, een update, een idee — jouw verhaal op jouw tijdlijn.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6.1A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+        <h3>Praat mee</h3>
+        <p>Like en reageer op posts van anderen. Elke reactie is het begin van een nieuw gesprek.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2 20c0-3.3 3.1-5 7-5s7 1.7 7 5"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20c0-2.6-1.4-4.2-3.5-5"/></svg></div>
+        <h3>Bouw je kring</h3>
+        <p>Kom in contact met mensen die je interessant vindt en houd elkaar moeiteloos op de hoogte.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-14h-7z"/></svg></div>
+        <h3>Snel &amp; simpel</h3>
+        <p>Account maken doe je in een minuut. Geen instellingen om je door te worstelen, meteen aan de slag.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Jij houdt de regie</h3>
+        <p>Alleen jij plaatst en verwijdert jouw eigen berichten. Jouw profiel, jouw keuzes.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Gratis om te starten</h3>
+        <p>Beginnen kost niets. Maak een account aan en ontdek zelf hoe fijn simpel kan zijn.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="steps-wrap">
+    <section class="block" id="hoe">
+      <div class="sec-head">
+        <span class="tag">Zo werkt het</span>
+        <h2>In drie stappen onderweg</h2>
+        <p>Van aanmelden tot je eerste gesprek — sneller dan een kop koffie zetten.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Maak je account</h3><p>Naam, e-mail, wachtwoord. Klaar. Geen wachttijd, geen gedoe.</p></div>
+        <div class="step"><div class="num">2</div><h3>Plaats je eerste bericht</h3><p>Deel wat je bezighoudt en zet jezelf op de tijdlijn.</p></div>
+        <div class="step"><div class="num">3</div><h3>Reageer &amp; groei</h3><p>Like, reageer en kom in contact. Zo groeit je kring vanzelf.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="block">
+    <div class="cta-band">
+      <h2>Klaar om mee te praten?</h2>
+      <p>Sluit je aan bij oitalk en deel je eerste bericht. Het duurt echt maar een minuut.</p>
+      <button class="btn btn-primary btn-lg" data-auth="signup">Gratis account maken</button>
+    </div>
+  </section>
+
+  <footer class="lp-foot">
+    <div class="foot-in">
+      <div class="brand"><img src="data:image/webp;base64,UklGRuQEAABXRUJQVlA4INgEAAAQHACdASpAAEAAPjEWiEKiISEVDM6IIAMEtQBnq1A473goxc6zv133AdoDxJ/oA7injHf4DpT/wA+QD9Gusl9A39jvSl/bf4Kv2s/bD2r7vm+89Dl5J9mP2jzAj4j8l/yO92O8H3SfxHkq/wf458ATib/Pflz5Tf7B6Ad5n+jf4T8h/Zrvp6AH5l/4vse/xX/B+1X2m/Mf+c/Nj6Bv5T/QP9n+ZnxY9Sz+2jf9GyrhYFnVrGV/iQpOBOnptkby5iS01JOSWUj15exNOJkaOHl96oXYJA5ONJ5Hcl7sHDWuuTNI77d7LWGQwAD+/3cyVhz5DFk86enfPMIsbLjK/vSG1D98LFCj2KC0/DStxGXDgFR3J/xLfgSm+mxqO5LvyIj4016HAkX/LkeD5DWPVIrULc4D/+78u/71X01e2sj9lfDJNbPQWoQ+FjJJw5poLBxOpxVNpDEUf6gq/yOs2x4eM3237fhnDOJXWhNpwOmT4c8z8yCfyyzIp5BFwB+NNf/v27upSsgO+MuwSLapH1O+umBdP0wX3+SOC+L6/6lZeWSlA1Va58zwasQ9C/n1tqZnJRwEKq5a0DThHffhDYW951l3bDIg8NT9TH81QRNAZTfWeEB2yCRMsC5Whmvet8+CLxJHzkrcofBB8BNVZELn/+lmTFSmqYPI5k3H2y/1i9hchNCKn5YtRIrilDAX1+r7eJqLGPwT/3TsvK564t07IheOzwsHsLeXtAbURKTrosEWd9tzVFKKFXj8ckzpjUJO/6uo0dsK9jmL/NWaIPcxmOCOeJpqpP8u+dG0FzR5SwtT1l+iP4DB9x2nqoERqXHN+o1p4gIM8rQs5wJ6adpEOkN+Ay0eHmJhu9cHL8/pruv3yxYHJerDyMIlT2KsyeYTFnm42Ptgf7sup/vDLWpHuuRXugkN/xrvOE3T9NpGA58B2fpo9+DjAYJDkTFofgN7aw2VVWgfPQgFID7uKJ3/6BX5wp+GInk4/gIutja3q+LXgoEr+ggEok+4v7/9Qkm9jBPqy6Y0qhw2ZfYcUwXbBKyyLOCu5IP3E5//mqdDKvNW9a/+QffXaN/xmTrqXuLF/Ae3Q6fDE9tLoP3NV85Rp/HAcd9XAyT83cHlgLy3PAlQM7OSPnoyrzppjk6i+qdSy9JkNoIbpSzeU4Pv19eURPBE37LKYcdZJ1v9ya9A6ggibjMxjHfACv0o0WdILR5Iq5oQubcwLzACY4X6KsR+5v/q1tS+pfFKJtCH7/7S2vjtyRWAHw+utscv/3S+N36W902eGgL7/9sf6edMBeT1UsAh51ocAKUSUxqh5dohAmJu2GufuEVlcB2kp/IGmD3l3aHmFPHDf2wvQ/6TB+c4W2dTOQrjeXWwVns+sOw8j1FwAl0gCEZDKACZ+07vpHKDn+FnAIMdcfKSMGf73y1kWaCBN738wwZj/awE8NaJny80ADNDk8c7IwSL9a/cf8iwV3aVDdkff0brIOf3Qdwxxwfyf6I9CM1Q0hVIE3rMPjVp1zawnZ+knZ60rM31/bp2XMoOL5q9BaBHC6DXY7xu6bgSz7ZUSTXWZQn2yAmgNcZxoz19fUxC6j9n0tsJ8JoUH5GO6tA0kC5NZ/3rZggrsBJWDV1ZrPT2nEyIJzLiAhlrrxlsIMAA" alt=""><span class="wordmark"><span class="oi">oi</span><span class="talk">talk</span></span></div>
+      <div class="tl">connect · communicate · grow</div>
+      <div class="cp">© 2026 oitalk</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ================= AUTH ================= -->
+<div id="authScreen"><div class="auth-wrap">
+  <div class="auth-card">
+    <button class="auth-back" id="authBack"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> Terug</button>
+    <img class="auth-logo" src="data:image/webp;base64,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" alt="oitalk">
+    <div class="auth-title" id="authTitle">Welkom terug</div>
+    <div class="auth-sub" id="authSub">Log in om verder te praten</div>
+    <div id="nameField" class="field" style="display:none"><label>Naam</label><input id="inName" type="text" placeholder="Je naam" autocomplete="name"></div>
+    <div class="field"><label>E-mail</label><input id="inEmail" type="email" placeholder="jij@voorbeeld.nl" autocomplete="email"></div>
+    <div class="field"><label>Wachtwoord</label><input id="inPass" type="password" placeholder="Minimaal 6 tekens" autocomplete="current-password"></div>
+    <button id="btnAuth" class="btn btn-primary">Inloggen</button>
+    <div id="authMsg" class="msg"></div>
+    <div class="switch"><span id="switchText">Nog geen account?</span> <button id="switchBtn">Registreren</button></div>
+    <div class="demo-hint">Nieuw hier? Maak hierboven een gratis account aan.</div>
+  </div>
+</div></div>
+
+<!-- ================= APP ================= -->
+<div id="app">
+  <header class="top"><div class="top-in">
+    <div class="brand clickable" id="brandHome"><img src="data:image/webp;base64,UklGRuQEAABXRUJQVlA4INgEAAAQHACdASpAAEAAPjEWiEKiISEVDM6IIAMEtQBnq1A473goxc6zv133AdoDxJ/oA7injHf4DpT/wA+QD9Gusl9A39jvSl/bf4Kv2s/bD2r7vm+89Dl5J9mP2jzAj4j8l/yO92O8H3SfxHkq/wf458ATib/Pflz5Tf7B6Ad5n+jf4T8h/Zrvp6AH5l/4vse/xX/B+1X2m/Mf+c/Nj6Bv5T/QP9n+ZnxY9Sz+2jf9GyrhYFnVrGV/iQpOBOnptkby5iS01JOSWUj15exNOJkaOHl96oXYJA5ONJ5Hcl7sHDWuuTNI77d7LWGQwAD+/3cyVhz5DFk86enfPMIsbLjK/vSG1D98LFCj2KC0/DStxGXDgFR3J/xLfgSm+mxqO5LvyIj4016HAkX/LkeD5DWPVIrULc4D/+78u/71X01e2sj9lfDJNbPQWoQ+FjJJw5poLBxOpxVNpDEUf6gq/yOs2x4eM3237fhnDOJXWhNpwOmT4c8z8yCfyyzIp5BFwB+NNf/v27upSsgO+MuwSLapH1O+umBdP0wX3+SOC+L6/6lZeWSlA1Va58zwasQ9C/n1tqZnJRwEKq5a0DThHffhDYW951l3bDIg8NT9TH81QRNAZTfWeEB2yCRMsC5Whmvet8+CLxJHzkrcofBB8BNVZELn/+lmTFSmqYPI5k3H2y/1i9hchNCKn5YtRIrilDAX1+r7eJqLGPwT/3TsvK564t07IheOzwsHsLeXtAbURKTrosEWd9tzVFKKFXj8ckzpjUJO/6uo0dsK9jmL/NWaIPcxmOCOeJpqpP8u+dG0FzR5SwtT1l+iP4DB9x2nqoERqXHN+o1p4gIM8rQs5wJ6adpEOkN+Ay0eHmJhu9cHL8/pruv3yxYHJerDyMIlT2KsyeYTFnm42Ptgf7sup/vDLWpHuuRXugkN/xrvOE3T9NpGA58B2fpo9+DjAYJDkTFofgN7aw2VVWgfPQgFID7uKJ3/6BX5wp+GInk4/gIutja3q+LXgoEr+ggEok+4v7/9Qkm9jBPqy6Y0qhw2ZfYcUwXbBKyyLOCu5IP3E5//mqdDKvNW9a/+QffXaN/xmTrqXuLF/Ae3Q6fDE9tLoP3NV85Rp/HAcd9XAyT83cHlgLy3PAlQM7OSPnoyrzppjk6i+qdSy9JkNoIbpSzeU4Pv19eURPBE37LKYcdZJ1v9ya9A6ggibjMxjHfACv0o0WdILR5Iq5oQubcwLzACY4X6KsR+5v/q1tS+pfFKJtCH7/7S2vjtyRWAHw+utscv/3S+N36W902eGgL7/9sf6edMBeT1UsAh51ocAKUSUxqh5dohAmJu2GufuEVlcB2kp/IGmD3l3aHmFPHDf2wvQ/6TB+c4W2dTOQrjeXWwVns+sOw8j1FwAl0gCEZDKACZ+07vpHKDn+FnAIMdcfKSMGf73y1kWaCBN738wwZj/awE8NaJny80ADNDk8c7IwSL9a/cf8iwV3aVDdkff0brIOf3Qdwxxwfyf6I9CM1Q0hVIE3rMPjVp1zawnZ+knZ60rM31/bp2XMoOL5q9BaBHC6DXY7xu6bgSz7ZUSTXWZQn2yAmgNcZxoz19fUxC6j9n0tsJ8JoUH5GO6tA0kC5NZ/3rZggrsBJWDV1ZrPT2nEyIJzLiAhlrrxlsIMAA" alt=""><span class="wordmark"><span class="oi">oi</span><span class="talk">talk</span></span></div>
+    <div class="me">
+      <button id="btnLogout" class="icon-btn" title="Uitloggen"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></button>
+    </div>
+  </div></header>
+
+  <main class="feed">
+    <!-- HOME -->
+    <section id="scrFeed" class="screen">
+      <div id="storiesRow" class="stories"></div>
+      <div class="shortcuts"><button class="chip" data-go="people">👥 Vrienden</button><button class="chip" data-go="pages">📄 Pagina's</button><button class="chip" data-go="saved">🔖 Opgeslagen</button></div>
+      <div id="friendReqCard"></div>
+      <div class="sug-label">Mensen om te volgen</div>
+      <div id="suggestRow" class="suggest"></div>
+      <div class="card composer">
+        <div class="row"><div id="myAvatar" class="avatar sm">?</div><textarea id="postBox" placeholder="Wat wil je delen?" maxlength="5000" rows="1"></textarea></div>
+        <div id="composerPreview" class="composer-preview" style="display:none"></div>
+        <div class="foot">
+          <div class="tools">
+            <button id="btnPhoto" class="tool" title="Foto toevoegen">📷 Foto</button>
+            <button id="btnVideo" class="tool" title="Video toevoegen">🎬 Video</button>
+            <button id="btnEmoji" class="tool" title="Emoji">😊</button>
+            <input id="fileInput" type="file" accept="image/*" hidden>
+            <input id="videoInput" type="file" accept="video/*" hidden>
+          </div>
+          <div class="foot-right"><span id="postCount" class="count">0 / 5000</span><button id="btnPost" class="btn-post" disabled>Plaatsen</button></div>
+        </div>
+      </div>
+      <div class="feed-tabs"><button class="ftab active" data-tab="all">Voor jou</button><button class="ftab" data-tab="following">Volgend</button></div>
+      <div id="feed"></div>
+    </section>
+
+    <!-- ONTDEK -->
+    <section id="scrPeople" class="screen" style="display:none">
+      <div class="scr-title">Ontdek</div>
+      <div class="seg"><button class="segbtn active" data-seg="people">Mensen</button><button class="segbtn" data-seg="pages">Pagina's</button></div>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="peopleSearch" type="text" placeholder="Zoek op naam">
+      </div>
+      <div id="peopleList"></div>
+      <div id="pagesList" style="display:none"></div>
+    </section>
+
+    <!-- MELDINGEN -->
+    <section id="scrNotifs" class="screen" style="display:none">
+      <div class="scr-title">Meldingen</div>
+      <div id="notifList"></div>
+    </section>
+
+    <!-- PROFIEL -->
+    <section id="scrProfile" class="screen" style="display:none">
+      <div id="profileHead"></div>
+      <div id="profileExtra"></div>
+      <div id="profilePosts"></div>
+    </section>
+    <section id="scrSaved" class="screen" style="display:none">
+      <div class="scr-title">Opgeslagen</div>
+      <div id="savedList"></div>
+    </section>
+  </main>
+
+  <nav class="bottomnav">
+    <button class="navbtn active" data-scr="feed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></button>
+    <button class="navbtn" data-scr="people"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2 20c0-3.3 3.1-5 7-5s7 1.7 7 5"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20c0-2.6-1.4-4.2-3.5-5"/></svg><span>Ontdek</span></button>
+    <button class="navbtn" data-scr="notifs"><span class="badge" id="notifBadge">0</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Meldingen</span></button>
+    <button class="navbtn" data-scr="profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>Profiel</span></button>
+  </nav>
+</div>
+
+<!-- profile edit modal -->
+<div id="profileModal" class="modal-bg"><div class="modal">
+  <h3>Profiel bewerken</h3>
+  <div id="profCoverPrev" class="cover-prev"></div>
+  <button id="profCoverBtn" class="btn btn-line" style="width:100%;margin-bottom:14px">Omslagfoto kiezen</button>
+  <input id="profCoverInput" type="file" accept="image/*" hidden>
+  <div class="profile-top">
+    <div id="profAvatar" class="avatar lg">?</div>
+    <div>
+      <button id="profAvatarBtn" class="btn btn-line" style="padding:8px 13px">Foto wijzigen</button>
+      <input id="profAvatarInput" type="file" accept="image/*" hidden>
+      <div id="profEmail" style="font-size:13px;color:var(--muted);margin-top:6px"></div>
+    </div>
+  </div>
+  <div class="field"><label>Naam</label><input id="profName" type="text" placeholder="Je naam"></div>
+  <div class="field"><label>Bio</label><textarea id="profBio" placeholder="Vertel kort iets over jezelf"></textarea></div>
+  <div class="modal-actions"><button id="profCancel" class="btn btn-line">Annuleren</button><button id="profSave" class="btn btn-primary" style="width:auto">Opslaan</button></div>
+</div></div>
+
+<div id="pageModal" class="modal-bg"><div class="modal">
+  <h3 id="pageModalTitle">Nieuwe pagina</h3>
+  <div id="pgmCoverPrev" class="cover-prev"></div>
+  <button id="pgmCoverBtn" class="btn btn-line" style="width:100%;margin-bottom:14px">Omslagfoto kiezen</button>
+  <input id="pgmCoverInput" type="file" accept="image/*" hidden>
+  <div class="profile-top">
+    <div id="pgmAvatar" class="avatar lg" style="background:linear-gradient(135deg,#12A594,#0891B2)">P</div>
+    <div><button id="pgmAvatarBtn" class="btn btn-line" style="padding:8px 13px">Foto kiezen</button><input id="pgmAvatarInput" type="file" accept="image/*" hidden></div>
+  </div>
+  <div class="field"><label>Paginanaam</label><input id="pgmName" type="text" placeholder="Bijv. Koffiehoek Groningen"></div>
+  <div class="field"><label>Categorie</label><select id="pgmCat"><option>Bedrijf</option><option>Merk</option><option>Openbaar figuur</option><option>Community</option><option>Goed doel</option><option>Vereniging</option><option>Overig</option></select></div>
+  <div class="field"><label>Omschrijving</label><textarea id="pgmAbout" placeholder="Waar gaat je pagina over?"></textarea></div>
+  <div class="modal-actions"><button id="pgmCancel" class="btn btn-line">Annuleren</button><button id="pgmSave" class="btn btn-primary" style="width:auto">Aanmaken</button></div>
+</div></div>
+<div id="reactPicker" class="react-picker"></div>
+<div id="emojiPop" class="emoji-pop"></div>
+<div id="toast" class="toast"></div>
+
+<script>
+
+/* ============================================================
+   oitalk — homepage + volledige app (demo-opslag in de browser).
+   Testaccount: demo@oitalk.nl / demo1234
+   ============================================================ */
+const AVATAR_COLORS=['#2E7DF0','#4DA6FF','#12A594','#F5A524','#E5484D','#8E4EC6','#0F9D58','#E0567A','#5B6BFF','#0891B2'];
+const REACTIONS={like:{e:'👍',l:'Leuk',c:'#2E7DF0'},love:{e:'❤️',l:'Mooi',c:'#E5484D'},haha:{e:'😂',l:'Haha',c:'#F5A524'},wow:{e:'😮',l:'Wauw',c:'#F5A524'},sad:{e:'😢',l:'Verdrietig',c:'#F5A524'}};
+const EMOJIS=['😀','😂','😍','🥳','😎','😉','👍','🙏','🔥','🎉','❤️','✨','😢','😮','💪','☕','🚗','⚽','🌞','🍀','👏','🤔','😅','🙌'];
+const $=s=>document.querySelector(s);
+const MAX_VID=4.5*1024*1024;
+const SB_URL="https://wjubzvvcabybmymrdntl.supabase.co";
+const SB_KEY="sb_publishable_B54a1HmSsCdMqoB4rj9eIQ_2FNyNXrJ";
+const sb=supabase.createClient(SB_URL,SB_KEY);
+function uuid(){return (window.crypto&&crypto.randomUUID)?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0,v=c==='x'?r:(r&0x3|0x8);return v.toString(16);});}
+async function sbErr(p,label){try{const {error}=await p;if(error){console.error(label,error);toast(label+': '+(error.message||'fout'));}}catch(e){console.error(label,e);toast(label+' mislukt');}}
+async function loadAll(){
+  try{
+    const [pr,pg,po,lk,cm,fl,pf,fr]=await Promise.all([
+      sb.from('profiles').select('*'),
+      sb.from('pages').select('*'),
+      sb.from('posts').select('*').order('created_at',{ascending:false}),
+      sb.from('likes').select('*'),
+      sb.from('comments').select('*'),
+      sb.from('follows').select('*'),
+      sb.from('page_follows').select('*'),
+      sb.from('friendships').select('*')
+    ]);
+    DB.users=pr.data||[];DB.pages=pg.data||[];DB.posts=po.data||[];DB.likes=lk.data||[];DB.comments=cm.data||[];DB.follows=fl.data||[];DB.pageFollows=pf.data||[];DB.friendships=fr.data||[];
+  }catch(e){console.error('loadAll',e);toast('Kon gegevens niet laden');}
+}
+let refT;
+function scheduleRefresh(){clearTimeout(refT);refT=setTimeout(async()=>{await loadAll();rerenderCurrent();},450);}
+function rerenderCurrent(){
+  if(!me)return;
+  if(currentScreen==='feed'){renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
+  else if(currentScreen==='people'){renderPeople($('#peopleSearch').value);renderPagesList($('#peopleSearch').value);}
+  else if(currentScreen==='notifs'){renderNotifs();}
+  else if(currentScreen==='profile'){if(viewing.kind==='page')renderPageProfile(viewing.id);else renderProfile(viewing.id);}
+  else if(currentScreen==='saved'){renderSaved();}
+  updateBadge();
+}
+let rtSubscribed=false;
+function subscribeRealtime(){if(rtSubscribed)return;rtSubscribed=true;try{sb.channel('oitalk-all').on('postgres_changes',{event:'*',schema:'public'},scheduleRefresh).subscribe();}catch(e){console.error('realtime',e);rtSubscribed=false;}}
+const KEY='oitalk_v3';
+let mem=null;
+function readDB(){try{const r=localStorage.getItem(KEY);if(r)return JSON.parse(r);}catch(e){}return mem;}
+function saveDB(){}
+function uid(p){return p+Math.random().toString(36).slice(2,9);}
+function esc(t){return (t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function initials(n){return (n||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'?';}
+function colorFor(id){let h=0;for(const c of (id||''))h=(h*31+c.charCodeAt(0))>>>0;return AVATAR_COLORS[h%AVATAR_COLORS.length];}
+function avatarHTML(id,name,cls='sm'){
+  const u=DB.users.find(x=>x.id===id);
+  if(u&&u.avatar)return `<div class="avatar ${cls}" data-user="${id}" style="background-image:url('${u.avatar}');background-size:cover;background-position:center"></div>`;
+  return `<div class="avatar ${cls}" data-user="${id}" style="background:${colorFor(id)}">${esc(initials(name))}</div>`;
+}
+function timeAgo(iso){const s=Math.floor((Date.now()-new Date(iso))/1000);if(s<60)return 'nu';const m=Math.floor(s/60);if(m<60)return m+' min';const h=Math.floor(m/60);if(h<24)return h+' uur';const d=Math.floor(h/24);if(d<7)return d+' d';return new Date(iso).toLocaleDateString('nl-NL',{day:'numeric',month:'short'});}
+let toastT;function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2600);}
+const userById=id=>DB.users.find(u=>u.id===id)||{display_name:'Onbekend'};
+
+/* ---------- seed ---------- */
+function seed(){
+  const now=Date.now(),h=n=>new Date(now-n*3600e3).toISOString(),m=n=>new Date(now-n*60e3).toISOString();
+  const u1=uid('u'),u2=uid('u'),u3=uid('u'),ud=uid('u');
+  const p1=uid('p'),p2=uid('p'),p3=uid('p'),p4=uid('p'),pgp=uid('p');const pg=uid('g');
+  return {users:[
+      {id:u1,email:'sanne@oitalk.nl',password:'demo1234',display_name:'Sanne Bakker',bio:'Houdt van koffie en korte gesprekken.',avatar:null},
+      {id:u2,email:'mark@oitalk.nl',password:'demo1234',display_name:'Mark Jansen',bio:'Sportliefhebber uit Groningen.',avatar:null},
+      {id:u3,email:'fatima@oitalk.nl',password:'demo1234',display_name:'Fatima El Amrani',bio:'Altijd in voor een wandeling.',avatar:null},
+      {id:ud,email:'demo@oitalk.nl',password:'demo1234',display_name:'Demo',bio:'Even aan het rondkijken op oitalk.',avatar:null}],
+    posts:[
+      {id:p4,user_id:u1,content:'Wat vinden jullie van de nieuwe tijdlijn?',created_at:m(18),image:null},
+      {id:p1,user_id:u2,content:'Net oitalk ontdekt — ziet er strak uit 👀',created_at:h(2),image:null},
+      {id:p2,user_id:u3,content:'Iemand hier ook uit het noorden? Altijd leuk om mensen in de buurt te spreken.',created_at:h(5),image:null},
+      {id:p3,user_id:u1,content:'Goedemorgen allemaal ☀️ Fijne dag gewenst!',created_at:h(26),image:null},
+      {id:pgp,user_id:u1,page_id:pg,content:'We zijn open! Kom langs voor een verse cappuccino ☕',created_at:h(3),image:null}],
+    likes:[
+      {post_id:p1,user_id:u1,type:'love',created_at:h(1.5)},{post_id:p1,user_id:u3,type:'like',created_at:h(1.2)},
+      {post_id:p2,user_id:u2,type:'like',created_at:h(4)},
+      {post_id:p3,user_id:u2,type:'like',created_at:h(24)},{post_id:p3,user_id:u3,type:'haha',created_at:h(23)}],
+    comments:[
+      {id:uid('c'),post_id:p1,user_id:u1,content:'Welkom! Leuk dat je er bent 🙌',created_at:h(1)},
+      {id:uid('c'),post_id:p3,user_id:u3,content:'Jij ook een fijne dag!',created_at:h(25)}],
+    follows:[
+      {follower_id:u1,following_id:ud,created_at:h(3)},
+      {follower_id:u2,following_id:ud,created_at:h(6)},
+      {follower_id:u1,following_id:u3,created_at:h(30)}],
+    pages:[{id:pg,owner_id:u1,name:'Koffiehoek Groningen',category:'Bedrijf',about:'Vers gezette koffie in het hart van de stad ☕',avatar:null,created_at:h(40)}],
+    pageFollows:[{user_id:u2,page_id:pg,created_at:h(20)},{user_id:u3,page_id:pg,created_at:h(19)}],
+    readAt:{},
+    sessionUserId:null};
+}
+let DB={users:[],posts:[],likes:[],comments:[],follows:[],pages:[],pageFollows:[],friendships:[]};
+DB.readAt={};
+let me=null,myProfile=null,currentScreen='feed',feedTab='all',viewing={kind:'user',id:null},pendingImage=null,pendingVideo=null,ontdekSeg='people';
+
+/* ---------- view routing (landing/auth/app) ---------- */
+function showView(v){
+  $('#landing').style.display=v==='landing'?'block':'none';
+  $('#authScreen').style.display=v==='auth'?'block':'none';
+  $('#app').style.display=v==='app'?'block':'none';
+  $('#app').classList.toggle('on',v==='app');
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('[data-auth]').forEach(b=>b.onclick=()=>openAuth(b.getAttribute('data-auth')));
+function openAuth(m){setMode(m);$('#authMsg').textContent='';$('#inEmail').value='';$('#inPass').value='';$('#inName').value='';showView('auth');setTimeout(()=>$('#inEmail').focus(),50);}
+$('#authBack').onclick=()=>showView('landing');
+
+/* ---------- auth ---------- */
+let mode='login';
+function setMode(m){mode=m;const s=m==='signup';
+  $('#nameField').style.display=s?'block':'none';
+  $('#authTitle').textContent=s?'Word lid van oitalk':'Welkom terug';
+  $('#authSub').textContent=s?'Maak je gratis account aan':'Log in om verder te praten';
+  $('#btnAuth').textContent=s?'Account aanmaken':'Inloggen';
+  $('#switchText').textContent=s?'Al een account?':'Nog geen account?';
+  $('#switchBtn').textContent=s?'Inloggen':'Registreren';}
+$('#switchBtn').onclick=()=>{setMode(mode==='login'?'signup':'login');$('#authMsg').textContent='';};
+$('#btnAuth').onclick=doAuth;
+[$('#inEmail'),$('#inPass'),$('#inName')].forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter')doAuth();}));
+async function doAuth(){
+  const email=$('#inEmail').value.trim().toLowerCase(),pass=$('#inPass').value,name=$('#inName').value.trim();
+  const msg=$('#authMsg');msg.className='msg';
+  if(!email||!pass){msg.className='msg err';msg.textContent='Vul e-mail en wachtwoord in.';return;}
+  if(mode==='signup'&&!name){msg.className='msg err';msg.textContent='Vul je naam in.';return;}
+  if(mode==='signup'&&pass.length<6){msg.className='msg err';msg.textContent='Wachtwoord minimaal 6 tekens.';return;}
+  $('#btnAuth').disabled=true;
+  try{
+    if(mode==='signup'){
+      const {data,error}=await sb.auth.signUp({email,password:pass,options:{data:{display_name:name}}});
+      if(error)throw error;
+      if(!data.session){msg.className='msg ok';msg.textContent='Account aangemaakt! Je kunt nu inloggen.';setMode('login');return;}
+      await loadAll();enterApp(data.user);
+    }else{
+      const {data,error}=await sb.auth.signInWithPassword({email,password:pass});
+      if(error)throw error;
+      await loadAll();enterApp(data.user);
+    }
+  }catch(err){
+    msg.className='msg err';
+    msg.textContent=/Invalid login/i.test(err.message)?'E-mail of wachtwoord klopt niet.':/already|registered/i.test(err.message)?'Dit e-mailadres bestaat al.':/confirm/i.test(err.message)?'Bevestig eerst je e-mail (of zet e-mailbevestiging uit in Supabase).':err.message;
+  }finally{$('#btnAuth').disabled=false;}
+}
+async function boot(){
+  const {data:{session}}=await sb.auth.getSession();
+  if(session){await loadAll();enterApp(session.user);}else{showView('landing');}
+  sb.auth.onAuthStateChange(async (_e,s)=>{ if(s&&!me){await loadAll();enterApp(s.user);} if(!s&&me){me=null;showView('landing');} });
+}
+boot();
+
+function enterApp(user){
+  me=user;
+  myProfile=DB.users.find(u=>u.id===me.id)||{id:me.id,display_name:(me.email||'').split('@')[0],bio:'',avatar:null,cover:null};
+  if(!DB.users.find(u=>u.id===me.id))DB.users.push(myProfile);
+  $('#myAvatar').outerHTML=avatarHTML(me.id,myProfile.display_name,'sm').replace('class="avatar sm"','id="myAvatar" class="avatar sm"');
+  showView('app');setScreen('feed');updateBadge();subscribeRealtime();
+}
+
+/* ---------- bottom nav / screens ---------- */
+document.querySelectorAll('.navbtn').forEach(b=>b.onclick=()=>setScreen(b.dataset.scr));
+$('#brandHome').onclick=()=>setScreen('feed');
+function setScreen(name,userId){
+  currentScreen=name;
+  $('#scrFeed').style.display=name==='feed'?'block':'none';
+  $('#scrPeople').style.display=name==='people'?'block':'none';
+  $('#scrNotifs').style.display=name==='notifs'?'block':'none';
+  $('#scrProfile').style.display=name==='profile'?'block':'none';
+  $('#scrSaved').style.display=name==='saved'?'block':'none';
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.scr===name));
+  window.scrollTo(0,0);
+  if(name==='feed'){renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
+  if(name==='saved'){renderSaved();}
+  if(name==='people'){renderPeople($('#peopleSearch').value);renderPagesList($('#peopleSearch').value);$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';}
+  if(name==='notifs'){renderNotifs();DB.readAt[me.id]=new Date().toISOString();saveDB();updateBadge();}
+  if(name==='profile'){viewing={kind:'user',id:userId||me.id};renderProfile(viewing.id);}
+}
+
+/* ---------- suggestions ---------- */
+function isFollowing(id){return DB.follows.some(f=>f.follower_id===me.id&&f.following_id===id);}
+function renderSuggestions(){
+  const list=DB.users.filter(u=>u.id!==me.id&&!isFollowing(u.id));
+  const el=$('#suggestRow');
+  if(!list.length){el.previousElementSibling.style.display='none';el.style.display='none';return;}
+  el.previousElementSibling.style.display='block';el.style.display='flex';
+  el.innerHTML=list.map(u=>`
+    <div class="sug-card">
+      ${avatarHTML(u.id,u.display_name,'sm')}
+      <div class="sug-name" data-user="${u.id}">${esc(u.display_name)}</div>
+      <div class="sug-bio">${esc(u.bio||'Op oitalk')}</div>
+      <button class="sug-follow" data-follow="${u.id}">Volgen</button>
+    </div>`).join('');
+  el.querySelectorAll('[data-follow]').forEach(b=>b.onclick=()=>{follow(b.dataset.follow);renderSuggestions();});
+  el.querySelectorAll('[data-user]').forEach(b=>b.onclick=()=>setScreen('profile',b.dataset.user));
+}
+function follow(id){if(!isFollowing(id)){const o={follower_id:me.id,following_id:id,created_at:new Date().toISOString()};DB.follows.push(o);sbErr(sb.from('follows').insert(o),'Volgen');}}
+function unfollow(id){DB.follows=DB.follows.filter(f=>!(f.follower_id===me.id&&f.following_id===id));sbErr(sb.from('follows').delete().eq('follower_id',me.id).eq('following_id',id),'Ontvolgen');}
+
+/* ---------- composer ---------- */
+const box=$('#postBox');
+function updatePostBtn(){const len=box.value.trim().length;$('#postCount').textContent=box.value.length+' / 5000';$('#btnPost').disabled=(len===0&&!pendingImage&&!pendingVideo)||box.value.length>5000;}
+box.addEventListener('input',()=>{box.style.height='auto';box.style.height=Math.min(box.scrollHeight,240)+'px';updatePostBtn();});
+$('#btnPhoto').onclick=()=>$('#fileInput').click();
+$('#fileInput').onchange=e=>{const f=e.target.files[0];if(!f)return;downscale(f,1200,.82,d=>{pendingImage=d;pendingVideo=null;showComposerMedia(`<img src="${d}">`);updatePostBtn();});e.target.value='';};
+$('#btnVideo').onclick=()=>$('#videoInput').click();
+$('#videoInput').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>MAX_VID){toast('Video te groot voor de demo (max ~4 MB)');e.target.value='';return;}const rd=new FileReader();rd.onload=ev=>{pendingVideo=ev.target.result;pendingImage=null;showComposerMedia(`<video src="${pendingVideo}" controls preload="metadata"></video>`);updatePostBtn();};rd.readAsDataURL(f);e.target.value='';};
+function showComposerMedia(inner){$('#composerPreview').style.display='block';$('#composerPreview').innerHTML=inner+`<button class="rm" title="Verwijderen">×</button>`;$('#composerPreview .rm').onclick=clearMedia;}
+function clearMedia(){pendingImage=null;pendingVideo=null;$('#composerPreview').style.display='none';$('#composerPreview').innerHTML='';updatePostBtn();}
+function downscale(file,max,q,cb){const rd=new FileReader();rd.onload=e=>{const img=new Image();img.onload=()=>{let w=img.width,h=img.height;if(w>max||h>max){const r=Math.min(max/w,max/h);w=Math.round(w*r);h=Math.round(h*r);}const cv=document.createElement('canvas');cv.width=w;cv.height=h;cv.getContext('2d').drawImage(img,0,0,w,h);cb(cv.toDataURL('image/jpeg',q));};img.src=e.target.result;};rd.readAsDataURL(file);}
+$('#btnPost').onclick=()=>{const content=box.value.trim();if(!content&&!pendingImage&&!pendingVideo)return;const o={id:uuid(),user_id:me.id,page_id:null,content,created_at:new Date().toISOString(),image:pendingImage,video:pendingVideo};DB.posts.unshift(o);sbErr(sb.from('posts').insert(o),'Plaatsen');box.value='';box.style.height='auto';clearMedia();updatePostBtn();loadFeed();toast('Geplaatst');};
+
+/* emoji popover */
+const emojiPop=$('#emojiPop');
+emojiPop.innerHTML=EMOJIS.map(e=>`<button>${e}</button>`).join('');
+emojiPop.querySelectorAll('button').forEach(b=>b.onclick=()=>{box.value+=b.textContent;box.dispatchEvent(new Event('input'));box.focus();});
+$('#btnEmoji').onclick=e=>{e.stopPropagation();const r=e.currentTarget.getBoundingClientRect();emojiPop.style.left=Math.min(r.left,window.innerWidth-260)+'px';emojiPop.style.top=(r.bottom+6)+'px';emojiPop.classList.toggle('open');};
+document.addEventListener('click',e=>{if(!emojiPop.contains(e.target)&&e.target!==$('#btnEmoji'))emojiPop.classList.remove('open');});
+
+/* ---------- feed ---------- */
+$('#peopleSearch').addEventListener('input',e=>{ontdekSeg==='people'?renderPeople(e.target.value):renderPagesList(e.target.value);});
+document.querySelectorAll('.segbtn').forEach(b=>b.onclick=()=>{ontdekSeg=b.dataset.seg;document.querySelectorAll('.segbtn').forEach(x=>x.classList.toggle('active',x===b));$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';$('#peopleSearch').placeholder=ontdekSeg==='people'?'Zoek op naam':'Zoek pagina';ontdekSeg==='people'?renderPeople($('#peopleSearch').value):renderPagesList($('#peopleSearch').value);});
+document.querySelectorAll('.ftab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.ftab').forEach(x=>x.classList.remove('active'));t.classList.add('active');feedTab=t.dataset.tab;loadFeed();});
+
+function postView(p){return {...p,profiles:userById(p.user_id),likes:DB.likes.filter(l=>l.post_id===p.id),comments:DB.comments.filter(c=>c.post_id===p.id).map(c=>({...c,profiles:userById(c.user_id)}))};}
+function buildFeed(){
+  let posts=DB.posts.slice().sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+  if(feedTab==='following'){
+    const uids=new Set(DB.follows.filter(f=>f.follower_id===me.id).map(f=>f.following_id));uids.add(me.id);
+    const pids=new Set(DB.pageFollows.filter(f=>f.user_id===me.id).map(f=>f.page_id));
+    DB.pages.filter(pg=>pg.owner_id===me.id).forEach(pg=>pids.add(pg.id));
+    posts=posts.filter(p=>p.page_id?pids.has(p.page_id):uids.has(p.user_id));
+  }
+  return posts.map(postView);
+}
+function loadFeed(){const feed=buildFeed();
+  if(!feed.length){$('#feed').innerHTML=`<div class="card empty"><div class="big">${feedTab==='following'?'Nog niets van wie je volgt':'Nog stil hier'}</div>${feedTab==='following'?'Volg mensen via Ontdek om hun berichten te zien.':'Plaats de eerste post en zet oitalk in beweging.'}</div>`;return;}
+  $('#feed').innerHTML=feed.map(renderPost).join('');bindPosts($('#feed'));}
+
+function myReaction(pid){const l=DB.likes.find(x=>x.post_id===pid&&x.user_id===me.id);return l?l.type:null;}
+function reactionSummary(likes){
+  if(!likes.length)return '';
+  const counts={};likes.forEach(l=>counts[l.type||'like']=(counts[l.type||'like']||0)+1);
+  const emos=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]).slice(0,3).map(t=>REACTIONS[t]?.e||'👍').join('');
+  return `<div class="react-summary"><span class="emos">${emos}</span> ${likes.length}</div>`;
+}
+function renderPost(p){
+  const page=p.page_id?pageById(p.page_id):null;
+  const name=page?page.name:(p.profiles?.display_name||'Onbekend');
+  const authAv=page?pageAvatarHTML(page,'sm'):avatarHTML(p.user_id,name,'sm');
+  const authAttr=page?`data-page="${page.id}"`:`data-user="${p.user_id}"`;
+  const authBadge=page?` <span style="font-size:11px;color:var(--muted);font-weight:500">· Pagina</span>`:'';
+  const mr=myReaction(p.id),comN=(p.comments||[]).length,mine=page?(page.owner_id===me.id):(p.user_id===me.id);
+  const rObj=mr?REACTIONS[mr]:null;
+  const comments=(p.comments||[]).sort((a,b)=>new Date(a.created_at)-new Date(b.created_at)).map(c=>`
+    <div class="comment">${avatarHTML(c.user_id,c.profiles?.display_name,'xs')}<div class="bubble"><div class="cname clickable" data-user="${c.user_id}">${esc(c.profiles?.display_name||'Onbekend')}</div><div class="ctext">${esc(c.content)}</div><div class="ctime">${timeAgo(c.created_at)}</div></div></div>`).join('');
+  return `<div class="card post" data-id="${p.id}">
+    <div class="post-head">${authAv}
+      <div class="who"><div class="name clickable" ${authAttr}>${esc(name)}${authBadge}</div><div class="time">${timeAgo(p.created_at)}</div></div>
+      ${mine?`<div class="post-menu-wrap"><button class="post-del" title="Meer">⋯</button><div class="post-menu"><button class="edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Bewerken</button><button class="del danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg> Verwijderen</button></div></div>`:''}
+    </div>
+    <div class="post-content">${p.content?`<div class="post-body">${esc(p.content)}</div>`:''}${p.image?`<img class="post-img" src="${p.image}" alt="">`:''}${p.video?`<video class="post-video" src="${p.video}" controls preload="metadata"></video>`:''}</div>
+    ${reactionSummary(p.likes)}
+    <div class="post-actions">
+      <button class="act like ${mr?'liked':''}" style="${rObj?`color:${rObj.c}`:''}">
+        ${rObj?`<span style="font-size:17px">${rObj.e}</span> <span>${rObj.l}</span>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zM7 11l4-8a2.5 2.5 0 0 1 2.5 2.5V8h5a2 2 0 0 1 2 2.3l-1.3 8A2 2 0 0 1 17.2 20H7"/></svg> <span>Leuk</span>`}
+      </button>
+      <button class="act comment-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span>${comN||''} Reageren</span></button>
+      <button class="act save ${isSaved(p.id)?'saved':''}"><svg viewBox="0 0 24 24" fill="${isSaved(p.id)?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg><span>Opslaan</span></button>
+    </div>
+    <div class="comments"><div class="comment-list">${comments}</div><div class="add-comment"><input type="text" placeholder="Schrijf een reactie…" maxlength="2000"><button title="Versturen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></div></div>
+  </div>`;
+}
+
+function savedKey(){return 'oitalk_saved_'+(me?me.id:'x');}
+function getSaved(){try{return JSON.parse(localStorage.getItem(savedKey())||'[]');}catch(e){return [];}}
+function isSaved(id){return getSaved().includes(id);}
+function toggleSave(id){let s=getSaved();const was=s.includes(id);if(was)s=s.filter(x=>x!==id);else s.unshift(id);try{localStorage.setItem(savedKey(),JSON.stringify(s));}catch(e){}toast(was?'Verwijderd uit opgeslagen':'Opgeslagen');}
+function renderSaved(){const ids=getSaved();const posts=ids.map(id=>DB.posts.find(p=>p.id===id)).filter(Boolean).map(postView);const el=$('#savedList');if(!posts.length){el.innerHTML=`<div class="card empty"><div class="big">Nog niets opgeslagen</div>Tik op "Opslaan" onder een bericht om het hier te bewaren.</div>`;return;}el.innerHTML=posts.map(renderPost).join('');bindPosts(el);}
+function renderStories(){
+  const el=$('#storiesRow');if(!el)return;
+  const seen=new Set(),items=[];
+  DB.posts.forEach(p=>{if(p.page_id||p.user_id===me.id||seen.has(p.user_id))return;seen.add(p.user_id);const u=DB.users.find(x=>x.id===p.user_id)||{};items.push({id:p.user_id,name:u.display_name||'Onbekend',cover:u.cover});});
+  const myU=DB.users.find(x=>x.id===me.id)||{};
+  let h=`<div class="story mine" data-story="me"><div class="top" style="${myU.cover?`background-image:url('${myU.cover}')`:'background:var(--grad)'}"></div><div class="plus">+</div><div class="lbl">Jouw verhaal</div></div>`;
+  h+=items.slice(0,15).map(it=>`<div class="story" data-story="${it.id}"><div class="sav" style="${it.cover?`background-image:url('${it.cover}')`:`background:${colorFor(it.id)}`}"></div><div class="grad"></div><div class="ring">${esc(initials(it.name))}</div><div class="lbl">${esc(it.name)}</div></div>`).join('');
+  el.innerHTML=h;
+  el.querySelectorAll('[data-story]').forEach(s=>s.onclick=()=>{const id=s.dataset.story;if(id==='me'){$('#postBox').focus();window.scrollTo({top:150,behavior:'smooth'});}else setScreen('profile',id);});
+}
+function renderFriendReqCard(){
+  const el=$('#friendReqCard');if(!el)return;
+  const reqs=(DB.friendships||[]).filter(f=>f.addressee_id===me.id&&f.status==='pending');
+  if(!reqs.length){el.innerHTML='';return;}
+  el.innerHTML=`<div class="freq-card"><h4>Vriendschapsverzoeken</h4>${reqs.map(f=>{const u=userById(f.requester_id);return `<div class="freq">${avatarHTML(f.requester_id,u.display_name,'sm')}<div class="who" data-user="${f.requester_id}"><div class="fn">${esc(u.display_name)}</div></div><div class="fa"><button class="btn btn-primary" data-acc="${f.requester_id}" style="width:auto">Accepteren</button><button class="btn btn-line" data-dec="${f.requester_id}">Weigeren</button></div></div>`;}).join('')}</div>`;
+  el.querySelectorAll('[data-user]').forEach(b=>b.onclick=()=>setScreen('profile',b.dataset.user));
+  el.querySelectorAll('[data-acc]').forEach(b=>b.onclick=()=>{acceptFriend(b.dataset.acc);renderFriendReqCard();renderStories();updateBadge();});
+  el.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{declineFriend(b.dataset.dec);renderFriendReqCard();updateBadge();});
+}
+document.querySelectorAll('.chip[data-go]').forEach(c=>c.onclick=()=>{const g=c.dataset.go;if(g==='saved'){setScreen('saved');return;}ontdekSeg=(g==='pages')?'pages':'people';setScreen('people');document.querySelectorAll('.segbtn').forEach(x=>x.classList.toggle('active',x.dataset.seg===ontdekSeg));$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';});
+function bindPosts(root){
+  root.querySelectorAll('[data-user]').forEach(el=>el.addEventListener('click',ev=>{ev.stopPropagation();setScreen('profile',el.dataset.user);}));
+  root.querySelectorAll('[data-page]').forEach(el=>el.addEventListener('click',ev=>{ev.stopPropagation();openPage(el.dataset.page);}));
+  root.querySelectorAll('.post').forEach(card=>{
+    const id=card.dataset.id;
+    wireLike(card.querySelector('.like'),id);
+    card.querySelector('.comment-toggle').onclick=()=>{const c=card.querySelector('.comments');c.classList.toggle('open');if(c.classList.contains('open'))c.querySelector('input').focus();};
+    const menuWrap=card.querySelector('.post-menu-wrap');
+    if(menuWrap){
+      const mBtn=menuWrap.querySelector('.post-del'),menu=menuWrap.querySelector('.post-menu');
+      mBtn.onclick=e=>{e.stopPropagation();document.querySelectorAll('.post-menu.open').forEach(x=>{if(x!==menu)x.classList.remove('open')});menu.classList.toggle('open');};
+      menu.querySelector('.del').onclick=()=>{menu.classList.remove('open');deletePost(id);};
+      menu.querySelector('.edit').onclick=()=>{menu.classList.remove('open');startEdit(card,id);};
+    }
+    const ci=card.querySelector('.add-comment input'),cb=card.querySelector('.add-comment button');
+    const send=()=>addComment(id,ci);cb.onclick=send;ci.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
+    const sv=card.querySelector('.save');if(sv)sv.onclick=()=>{toggleSave(id);if(currentScreen==='saved')renderSaved();else rerenderPosts();};
+  });
+}
+document.addEventListener('click',()=>document.querySelectorAll('.post-menu.open').forEach(x=>x.classList.remove('open')));
+
+/* ---------- reactions ---------- */
+const rp=$('#reactPicker');
+rp.innerHTML=Object.entries(REACTIONS).map(([k,v])=>`<button data-r="${k}" title="${v.l}">${v.e}</button>`).join('');
+rp.querySelectorAll('button').forEach(b=>b.onclick=()=>{setReaction(rp.dataset.post,b.dataset.r);hidePicker();});
+let pickerHideT;
+function openPicker(pid,btn){rp.dataset.post=pid;const r=btn.getBoundingClientRect();rp.style.left=Math.max(8,Math.min(r.left,window.innerWidth-260))+'px';rp.style.top=(r.top-54)+'px';rp.classList.add('open');clearTimeout(pickerHideT);}
+function hidePicker(){rp.classList.remove('open');}
+rp.addEventListener('pointerenter',()=>clearTimeout(pickerHideT));
+rp.addEventListener('pointerleave',()=>{pickerHideT=setTimeout(hidePicker,250);});
+window.addEventListener('scroll',hidePicker,true);
+function wireLike(btn,pid){
+  let holdT=null,held=false,startX=0,startY=0;
+  btn.addEventListener('pointerdown',e=>{held=false;startX=e.clientX;startY=e.clientY;holdT=setTimeout(()=>{held=true;openPicker(pid,btn);},360);});
+  btn.addEventListener('pointermove',e=>{if(holdT&&(Math.abs(e.clientX-startX)>10||Math.abs(e.clientY-startY)>10)){clearTimeout(holdT);}});
+  btn.addEventListener('pointerup',()=>{clearTimeout(holdT);if(!held)toggleReaction(pid);});
+  btn.addEventListener('pointercancel',()=>clearTimeout(holdT));
+  btn.addEventListener('pointerleave',()=>clearTimeout(holdT));
+  btn.addEventListener('mouseenter',()=>{clearTimeout(pickerHideT);holdT=setTimeout(()=>openPicker(pid,btn),480);});
+  btn.addEventListener('mouseleave',()=>{clearTimeout(holdT);pickerHideT=setTimeout(hidePicker,300);});
+  btn.addEventListener('contextmenu',e=>e.preventDefault());
+}
+function setReaction(pid,type){DB.likes=DB.likes.filter(l=>!(l.post_id===pid&&l.user_id===me.id));const o={post_id:pid,user_id:me.id,type,created_at:new Date().toISOString()};DB.likes.push(o);rerenderPosts();(async()=>{await sb.from('likes').delete().eq('post_id',pid).eq('user_id',me.id);await sbErr(sb.from('likes').insert(o),'Reactie');})();}
+function toggleReaction(pid){if(myReaction(pid)){DB.likes=DB.likes.filter(l=>!(l.post_id===pid&&l.user_id===me.id));sbErr(sb.from('likes').delete().eq('post_id',pid).eq('user_id',me.id),'Reactie');}else{const o={post_id:pid,user_id:me.id,type:'like',created_at:new Date().toISOString()};DB.likes.push(o);sbErr(sb.from('likes').insert(o),'Reactie');}rerenderPosts();}
+
+/* ---------- comments / edit / delete ---------- */
+function rerenderPosts(){if(currentScreen==='feed')loadFeed();else if(currentScreen==='profile'){if(viewing.kind==='page')renderPagePosts(viewing.id);else renderProfilePosts(viewing.id);}}
+function reopen(id){const c=document.querySelector(`.post[data-id="${id}"] .comments`);if(c)c.classList.add('open');}
+function addComment(id,input){const content=input.value.trim();if(!content)return;const o={id:uuid(),post_id:id,user_id:me.id,content,created_at:new Date().toISOString()};DB.comments.push(o);sbErr(sb.from('comments').insert(o),'Reactie');input.value='';rerenderPosts();reopen(id);}
+function deletePost(id){if(!confirm('Deze post verwijderen?'))return;DB.posts=DB.posts.filter(p=>p.id!==id);DB.likes=DB.likes.filter(l=>l.post_id!==id);DB.comments=DB.comments.filter(c=>c.post_id!==id);sbErr(sb.from('posts').delete().eq('id',id),'Verwijderen');rerenderPosts();}
+function startEdit(card,id){
+  const p=DB.posts.find(x=>x.id===id);const cont=card.querySelector('.post-content');
+  cont.innerHTML=`<div class="post-edit"><textarea>${esc(p.content)}</textarea><div class="ea"><button class="btn btn-line" style="padding:8px 14px">Annuleren</button><button class="btn btn-primary" style="padding:8px 16px;width:auto">Opslaan</button></div></div>`;
+  const ta=cont.querySelector('textarea');ta.focus();
+  cont.querySelector('.btn-line').onclick=()=>rerenderPosts();
+  cont.querySelector('.btn-primary').onclick=()=>{const v=ta.value.trim();if(!v&&!p.image&&!p.video){toast('Bericht mag niet leeg zijn');return;}p.content=v;sbErr(sb.from('posts').update({content:v}).eq('id',p.id),'Bijwerken');rerenderPosts();toast('Bijgewerkt');};
+}
+
+/* ---------- people ---------- */
+function renderPeople(q){
+  q=(q||'').trim().toLowerCase();
+  const list=DB.users.filter(u=>u.id!==me.id&&u.display_name.toLowerCase().includes(q));
+  const el=$('#peopleList');
+  if(!list.length){el.innerHTML=`<div class="card empty">Geen mensen gevonden.</div>`;return;}
+  el.innerHTML=list.map(u=>`<div class="person">${avatarHTML(u.id,u.display_name,'sm')}<div class="who" data-user="${u.id}"><div class="pn">${esc(u.display_name)}</div><div class="pb">${esc(u.bio||'Op oitalk')}</div></div>${isFollowing(u.id)?`<button class="btn-following" data-unf="${u.id}">Volgend</button>`:`<button class="btn-follow" data-f="${u.id}">Volgen</button>`}</div>`).join('');
+  el.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{follow(b.dataset.f);renderPeople(q);});
+  el.querySelectorAll('[data-unf]').forEach(b=>b.onclick=()=>{unfollow(b.dataset.unf);renderPeople(q);});
+  el.querySelectorAll('[data-user]').forEach(b=>b.onclick=()=>setScreen('profile',b.dataset.user));
+}
+
+/* ---------- notifications ---------- */
+function myNotifs(){
+  const list=[];
+  DB.follows.filter(f=>f.following_id===me.id&&f.follower_id!==me.id).forEach(f=>list.push({type:'follow',actor:f.follower_id,at:f.created_at}));
+  const myPosts=new Set(DB.posts.filter(p=>p.user_id===me.id).map(p=>p.id));
+  DB.likes.filter(l=>myPosts.has(l.post_id)&&l.user_id!==me.id).forEach(l=>list.push({type:'like',actor:l.user_id,post:l.post_id,rt:l.type,at:l.created_at||new Date().toISOString()}));
+  DB.comments.filter(c=>myPosts.has(c.post_id)&&c.user_id!==me.id).forEach(c=>list.push({type:'comment',actor:c.user_id,post:c.post_id,at:c.created_at}));
+  const myPageIds=new Set(DB.pages.filter(p=>p.owner_id===me.id).map(p=>p.id));
+  DB.pageFollows.filter(f=>myPageIds.has(f.page_id)).forEach(f=>list.push({type:'pagefollow',actor:f.user_id,page:f.page_id,at:f.created_at}));
+  (DB.friendships||[]).filter(f=>f.addressee_id===me.id&&f.status==='pending').forEach(f=>list.push({type:'friendreq',actor:f.requester_id,at:f.created_at}));
+  (DB.friendships||[]).filter(f=>f.requester_id===me.id&&f.status==='accepted').forEach(f=>list.push({type:'friendok',actor:f.addressee_id,at:f.created_at}));
+  return list.sort((a,b)=>new Date(b.at)-new Date(a.at));
+}
+function unreadCount(){const r=DB.readAt[me.id];const n=myNotifs();return r?n.filter(x=>new Date(x.at)>new Date(r)).length:n.length;}
+function updateBadge(){const c=unreadCount();const b=$('#notifBadge');b.textContent=c>9?'9+':c;b.classList.toggle('show',c>0);}
+function renderNotifs(){
+  const n=myNotifs(),r=DB.readAt[me.id];const el=$('#notifList');
+  if(!n.length){el.innerHTML=`<div class="card empty"><div class="big">Nog geen meldingen</div>Zodra mensen je volgen of op je posts reageren, zie je het hier.</div>`;return;}
+  el.innerHTML=n.map(x=>{
+    const a=userById(x.actor).display_name;const unread=!r||new Date(x.at)>new Date(r);
+    let ic='👍',txt='';
+    if(x.type==='follow'){ic='➕';txt=`<b>${esc(a)}</b> volgt je nu`;}
+    else if(x.type==='like'){ic=REACTIONS[x.rt]?.e||'👍';txt=`<b>${esc(a)}</b> reageerde met ${ic} op je bericht`;}
+    else if(x.type==='comment'){ic='💬';txt=`<b>${esc(a)}</b> plaatste een reactie op je bericht`;}
+    else if(x.type==='pagefollow'){ic='➕';txt=`<b>${esc(a)}</b> volgt je pagina <b>${esc((pageById(x.page)||{}).name||'')}</b>`;}
+    else if(x.type==='friendreq'){ic='👋';txt=`<b>${esc(a)}</b> wil je vriend worden`;}
+    else if(x.type==='friendok'){ic='🤝';txt=`<b>${esc(a)}</b> is nu je vriend`;}
+    const acts=x.type==='friendreq'?`<div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-primary" data-fa="accept" data-u="${x.actor}" style="padding:7px 14px;width:auto">Accepteren</button><button class="btn btn-line" data-fa="decline" data-u="${x.actor}" style="padding:7px 14px">Weigeren</button></div>`:'';
+    return `<div class="notif ${unread?'unread':''}"><div class="nic" style="background:${colorFor(x.actor)}22">${ic}</div><div class="nt">${txt}<div class="ntime">${timeAgo(x.at)}</div>${acts}</div></div>`;
+  }).join('');
+  el.querySelectorAll('[data-fa]').forEach(b=>b.onclick=()=>{const u=b.dataset.u;if(b.dataset.fa==='accept')acceptFriend(u);else declineFriend(u);renderNotifs();updateBadge();});
+}
+
+/* ---------- profile ---------- */
+function renderProfile(userId){renderProfileHead(userId);renderMyPagesPanel(userId);renderProfilePosts(userId);}
+function myFriendships(){return DB.friendships||[];}
+function friendRow(other){return myFriendships().find(f=>(f.requester_id===me.id&&f.addressee_id===other)||(f.requester_id===other&&f.addressee_id===me.id));}
+function friendStatus(other){const f=friendRow(other);if(!f)return 'none';if(f.status==='accepted')return 'friends';return f.requester_id===me.id?'sent':'recv';}
+function friendCount(u){return (DB.friendships||[]).filter(f=>f.status==='accepted'&&(f.requester_id===u||f.addressee_id===u)).length;}
+function friendBtnHTML(other){const s=friendStatus(other);
+  if(s==='friends')return `<button class="btn btn-line" data-fr="remove" style="width:auto">Vrienden ✓</button>`;
+  if(s==='sent')return `<button class="btn btn-line" data-fr="cancel" style="width:auto">Verzoek verzonden</button>`;
+  if(s==='recv')return `<button class="btn btn-primary" data-fr="accept" style="width:auto">Accepteren</button>`;
+  return `<button class="btn btn-primary" data-fr="send" style="width:auto">Vriend toevoegen</button>`;}
+function sendFriend(other){const rev=myFriendships().find(f=>f.requester_id===other&&f.addressee_id===me.id&&f.status==='pending');if(rev){acceptFriend(other);return;}if(friendRow(other))return;const o={id:uuid(),requester_id:me.id,addressee_id:other,status:'pending',created_at:new Date().toISOString()};DB.friendships.push(o);sbErr(sb.from('friendships').insert(o),'Vriendschapsverzoek');toast('Verzoek verstuurd');}
+function acceptFriend(other){const f=myFriendships().find(x=>x.requester_id===other&&x.addressee_id===me.id&&x.status==='pending');if(!f)return;f.status='accepted';sbErr(sb.from('friendships').update({status:'accepted'}).eq('id',f.id),'Accepteren');toast('Jullie zijn nu vrienden');}
+function declineFriend(other){const f=myFriendships().find(x=>x.requester_id===other&&x.addressee_id===me.id&&x.status==='pending');if(!f)return;DB.friendships=DB.friendships.filter(x=>x.id!==f.id);sbErr(sb.from('friendships').delete().eq('id',f.id),'Weigeren');}
+function cancelFriend(other){const f=myFriendships().find(x=>x.requester_id===me.id&&x.addressee_id===other&&x.status==='pending');if(!f)return;DB.friendships=DB.friendships.filter(x=>x.id!==f.id);sbErr(sb.from('friendships').delete().eq('id',f.id),'Annuleren');}
+function removeFriend(other){const f=friendRow(other);if(!f)return;DB.friendships=DB.friendships.filter(x=>x.id!==f.id);sbErr(sb.from('friendships').delete().eq('id',f.id),'Vriend verwijderen');}
+function renderProfileHead(userId){
+  const u=userById(userId);const isMe=userId===me.id;
+  const posts=DB.posts.filter(p=>p.user_id===userId&&!p.page_id).length;
+  const followers=DB.follows.filter(f=>f.following_id===userId).length;
+  const following=DB.follows.filter(f=>f.follower_id===userId).length;
+  const friends=friendCount(userId);
+  $('#profileHead').innerHTML=`<div class="prof-head">
+    <div class="prof-cover"${u.cover?` style="background-image:url('${u.cover}');background-size:cover;background-position:center"`:''}></div>
+    <div class="prof-inner">
+      ${avatarHTML(userId,u.display_name,'xl')}
+      <div class="prof-name">${esc(u.display_name)}</div>
+      <div class="prof-bio">${esc(u.bio||'Nog geen bio.')}</div>
+      <div class="prof-stats"><div class="st"><b>${posts}</b><span>posts</span></div><div class="st"><b>${friends}</b><span>vrienden</span></div><div class="st"><b>${followers}</b><span>volgers</span></div><div class="st"><b>${following}</b><span>volgend</span></div></div>
+      <div class="prof-actions">${isMe
+        ?`<button class="btn btn-primary" id="editProfBtn" style="width:auto">Profiel bewerken</button>`
+        :`${friendBtnHTML(userId)}${isFollowing(userId)?`<button class="btn btn-line" id="pfFollow">Ontvolgen</button>`:`<button class="btn btn-line" id="pfFollow" style="width:auto">Volgen</button>`}`}</div>
+    </div>
+  </div>`;
+  if(isMe)$('#editProfBtn').onclick=openProfileModal;
+  else{
+    $('#pfFollow').onclick=()=>{isFollowing(userId)?unfollow(userId):follow(userId);renderProfile(userId);};
+    const fb=$('#profileHead [data-fr]');
+    if(fb)fb.onclick=()=>{const a=fb.dataset.fr;if(a==='send')sendFriend(userId);else if(a==='accept')acceptFriend(userId);else if(a==='cancel')cancelFriend(userId);else if(a==='remove'){if(!confirm('Deze vriend verwijderen?'))return;removeFriend(userId);}renderProfile(userId);};
+  }
+}
+function renderProfilePosts(userId){
+  const posts=DB.posts.filter(p=>p.user_id===userId&&!p.page_id).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).map(postView);
+  const el=$('#profilePosts');
+  if(!posts.length){el.innerHTML=`<div class="card empty">${userId===me.id?'Je hebt nog niets geplaatst.':'Deze persoon heeft nog niets geplaatst.'}</div>`;return;}
+  el.innerHTML=posts.map(renderPost).join('');bindPosts(el);
+}
+
+/* ---------- profile edit modal ---------- */
+let pendingAvatar=null,pendingCover=null;
+function openProfileModal(){
+  pendingAvatar=null;pendingCover=null;const _c=(DB.users.find(x=>x.id===me.id)||{}).cover;$('#profCoverPrev').style.cssText=_c?`background-image:url('${_c}');background-size:cover;background-position:center`:'';
+  $('#profAvatar').outerHTML=avatarHTML(me.id,myProfile.display_name,'lg').replace('class="avatar lg"','id="profAvatar" class="avatar lg"');
+  $('#profEmail').textContent=me.email;$('#profName').value=myProfile.display_name||'';$('#profBio').value=myProfile.bio||'';
+  $('#profileModal').classList.add('open');
+}
+$('#profAvatarBtn').onclick=()=>$('#profAvatarInput').click();
+$('#profCoverBtn').onclick=()=>$('#profCoverInput').click();
+$('#profCoverInput').onchange=e=>{const f=e.target.files[0];if(!f)return;downscale(f,1400,.82,d=>{pendingCover=d;$('#profCoverPrev').style.cssText=`background-image:url('${d}');background-size:cover;background-position:center`;});e.target.value='';};
+$('#profAvatarInput').onchange=e=>{const f=e.target.files[0];if(!f)return;downscale(f,400,.85,d=>{pendingAvatar=d;$('#profAvatar').outerHTML=`<div id="profAvatar" class="avatar lg" style="background-image:url('${d}');background-size:cover;background-position:center"></div>`;});e.target.value='';};
+$('#profCancel').onclick=()=>$('#profileModal').classList.remove('open');
+$('#profileModal').onclick=e=>{if(e.target.id==='profileModal')$('#profileModal').classList.remove('open');};
+$('#profSave').onclick=()=>{const name=$('#profName').value.trim();if(!name){toast('Naam mag niet leeg zijn');return;}const u=DB.users.find(x=>x.id===me.id);u.display_name=name;u.bio=$('#profBio').value.trim();if(pendingAvatar)u.avatar=pendingAvatar;if(pendingCover)u.cover=pendingCover;myProfile=u;sbErr(sb.from('profiles').update({display_name:u.display_name,bio:u.bio,avatar:u.avatar||null,cover:u.cover||null}).eq('id',me.id),'Profiel');$('#myAvatar').outerHTML=avatarHTML(me.id,name,'sm').replace('class="avatar sm"','id="myAvatar" class="avatar sm"');$('#profileModal').classList.remove('open');toast('Profiel opgeslagen');renderProfile(me.id);};
+
+/* ---------- logout ---------- */
+$('#btnLogout').onclick=async()=>{await sb.auth.signOut();me=null;showView('landing');};
+
+/* ---------- pages ---------- */
+function pageById(id){return DB.pages.find(p=>p.id===id);}
+function isFollowingPage(id){return DB.pageFollows.some(f=>f.user_id===me.id&&f.page_id===id);}
+function followPage(id){if(!isFollowingPage(id)){const o={user_id:me.id,page_id:id,created_at:new Date().toISOString()};DB.pageFollows.push(o);sbErr(sb.from('page_follows').insert(o),'Volgen');}}
+function unfollowPage(id){DB.pageFollows=DB.pageFollows.filter(f=>!(f.user_id===me.id&&f.page_id===id));sbErr(sb.from('page_follows').delete().eq('user_id',me.id).eq('page_id',id),'Ontvolgen');}
+function pageAvatarHTML(pg,cls='sm'){if(pg&&pg.avatar)return `<div class="avatar ${cls}" data-page="${pg.id}" style="background-image:url('${pg.avatar}');background-size:cover;background-position:center"></div>`;return `<div class="avatar ${cls}" data-page="${pg?pg.id:''}" style="background:linear-gradient(135deg,#12A594,#0891B2)">${esc(initials(pg?pg.name:'P'))}</div>`;}
+
+function renderMyPagesPanel(userId){
+  const el=$('#profileExtra');
+  if(userId!==me.id){el.innerHTML='';return;}
+  const mine=DB.pages.filter(p=>p.owner_id===me.id);
+  el.innerHTML=`<div class="card" style="padding:14px;margin-bottom:16px"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:${mine.length?'12px':'0'}"><b style="font-family:'Poppins';color:var(--navy);font-size:15px">Jouw pagina's</b><button class="btn btn-primary" id="newPageBtn" style="padding:8px 14px;width:auto">+ Nieuwe pagina</button></div>${mine.map(pg=>`<div class="person" style="margin-bottom:8px;box-shadow:none">${pageAvatarHTML(pg,'sm')}<div class="who" data-open="${pg.id}"><div class="pn">${esc(pg.name)}</div><div class="pb">${esc(pg.category)} · ${DB.pageFollows.filter(f=>f.page_id===pg.id).length} volgers</div></div></div>`).join('')}</div>`;
+  $('#newPageBtn').onclick=()=>openPageModal(null);
+  el.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openPage(b.dataset.open));
+}
+
+function renderPagesList(q){
+  q=(q||'').trim().toLowerCase();
+  const list=DB.pages.filter(p=>p.name.toLowerCase().includes(q));
+  const el=$('#pagesList');
+  const head=`<button class="btn btn-primary" id="createPageTop" style="width:100%;margin-bottom:12px">+ Maak een pagina</button>`;
+  el.innerHTML=head+(list.length?list.map(pg=>{const f=isFollowingPage(pg.id),owner=pg.owner_id===me.id;return `<div class="person">${pageAvatarHTML(pg,'sm')}<div class="who" data-open="${pg.id}"><div class="pn">${esc(pg.name)}</div><div class="pb">${esc(pg.category)} · ${DB.pageFollows.filter(x=>x.page_id===pg.id).length} volgers</div></div>${owner?`<button class="btn-following" data-open2="${pg.id}">Beheren</button>`:(f?`<button class="btn-following" data-unfp="${pg.id}">Volgend</button>`:`<button class="btn-follow" data-fp="${pg.id}">Volgen</button>`)}</div>`;}).join(''):`<div class="card empty">Geen pagina's gevonden.</div>`);
+  $('#createPageTop').onclick=()=>openPageModal(null);
+  el.querySelectorAll('[data-fp]').forEach(b=>b.onclick=()=>{followPage(b.dataset.fp);renderPagesList(q);});
+  el.querySelectorAll('[data-unfp]').forEach(b=>b.onclick=()=>{unfollowPage(b.dataset.unfp);renderPagesList(q);});
+  el.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openPage(b.dataset.open));
+  el.querySelectorAll('[data-open2]').forEach(b=>b.onclick=()=>openPage(b.dataset.open2));
+}
+
+function openPage(pageId){
+  currentScreen='profile';viewing={kind:'page',id:pageId};
+  ['Feed','People','Notifs','Profile'].forEach(s=>{$('#scr'+s).style.display=(s==='Profile')?'block':'none';});
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));
+  window.scrollTo(0,0);renderPageProfile(pageId);
+}
+function renderPageProfile(pid){
+  const pg=pageById(pid);if(!pg){setScreen('feed');return;}
+  const owner=pg.owner_id===me.id;
+  const followers=DB.pageFollows.filter(f=>f.page_id===pid).length;
+  const postN=DB.posts.filter(p=>p.page_id===pid).length;
+  $('#profileHead').innerHTML=`<div class="prof-head"><div class="prof-cover"${pg.cover?` style="background-image:url('${pg.cover}');background-size:cover;background-position:center"`:''}></div><div class="prof-inner">
+    ${pageAvatarHTML(pg,'xl')}
+    <div class="prof-name">${esc(pg.name)}</div>
+    <div class="prof-bio"><b style="color:var(--blue)">${esc(pg.category)}</b> · Pagina${pg.about?'<br>'+esc(pg.about):''}</div>
+    <div class="prof-stats"><div class="st"><b>${postN}</b><span>posts</span></div><div class="st"><b>${followers}</b><span>volgers</span></div></div>
+    <div class="prof-actions">${owner?`<button class="btn btn-line" id="pgEdit" style="width:auto">Pagina bewerken</button>`:(isFollowingPage(pid)?`<button class="btn btn-line" id="pgFollow">Ontvolgen</button>`:`<button class="btn btn-primary" id="pgFollow" style="width:auto">Volgen</button>`)}</div>
+  </div></div>`;
+  if(owner){
+    $('#profileExtra').innerHTML=`<div class="card composer"><div class="row">${pageAvatarHTML(pg,'sm')}<textarea id="pgBox" placeholder="Plaats iets als ${esc(pg.name)}…" maxlength="5000" rows="1"></textarea></div><div id="pgPreview" class="composer-preview" style="display:none"></div><div class="foot"><div class="tools"><button id="pgPhoto" class="tool">📷 Foto</button><button id="pgVideo" class="tool">🎬 Video</button><input id="pgFile" type="file" accept="image/*" hidden><input id="pgVid" type="file" accept="video/*" hidden></div><div class="foot-right"><button id="pgPost" class="btn-post" disabled>Plaatsen</button></div></div></div>`;
+    wirePageComposer(pg);
+    $('#pgEdit').onclick=()=>openPageModal(pg);
+  }else{$('#profileExtra').innerHTML='';$('#pgFollow').onclick=()=>{isFollowingPage(pid)?unfollowPage(pid):followPage(pid);renderPageProfile(pid);};}
+  renderPagePosts(pid);
+}
+function renderPagePosts(pid){
+  const posts=DB.posts.filter(p=>p.page_id===pid).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).map(postView);
+  const el=$('#profilePosts');
+  if(!posts.length){el.innerHTML=`<div class="card empty">Deze pagina heeft nog niets geplaatst.</div>`;return;}
+  el.innerHTML=posts.map(renderPost).join('');bindPosts(el);
+}
+function wirePageComposer(pg){
+  let img=null,vid=null;const b=$('#pgBox'),btn=$('#pgPost');
+  const upd=()=>{btn.disabled=(b.value.trim().length===0&&!img&&!vid);};
+  b.addEventListener('input',()=>{b.style.height='auto';b.style.height=Math.min(b.scrollHeight,240)+'px';upd();});
+  $('#pgPhoto').onclick=()=>$('#pgFile').click();
+  const showPg=(inner)=>{$('#pgPreview').style.display='block';$('#pgPreview').innerHTML=inner+`<button class="rm">×</button>`;$('#pgPreview .rm').onclick=()=>{img=null;vid=null;$('#pgPreview').style.display='none';$('#pgPreview').innerHTML='';upd();};};
+  $('#pgFile').onchange=e=>{const f=e.target.files[0];if(!f)return;downscale(f,1200,.82,d=>{img=d;vid=null;showPg(`<img src="${d}">`);upd();});e.target.value='';};
+  $('#pgVideo').onclick=()=>$('#pgVid').click();
+  $('#pgVid').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>MAX_VID){toast('Video te groot voor de demo (max ~4 MB)');e.target.value='';return;}const rd=new FileReader();rd.onload=ev=>{vid=ev.target.result;img=null;showPg(`<video src="${vid}" controls preload="metadata"></video>`);upd();};rd.readAsDataURL(f);e.target.value='';};
+  btn.onclick=()=>{const c=b.value.trim();if(!c&&!img&&!vid)return;const o={id:uuid(),user_id:me.id,page_id:pg.id,content:c,created_at:new Date().toISOString(),image:img,video:vid};DB.posts.unshift(o);sbErr(sb.from('posts').insert(o),'Plaatsen');renderPageProfile(pg.id);toast('Geplaatst als '+pg.name);};
+}
+
+/* page create/edit modal */
+let editingPage=null,pgmAvatar=null,pgmCover=null;
+function openPageModal(pg){
+  editingPage=pg;pgmAvatar=null;pgmCover=null;const _pc=pg&&pg.cover;$('#pgmCoverPrev').style.cssText=_pc?`background-image:url('${pg.cover}');background-size:cover;background-position:center`:'';
+  $('#pageModalTitle').textContent=pg?'Pagina bewerken':'Nieuwe pagina';
+  $('#pgmSave').textContent=pg?'Opslaan':'Aanmaken';
+  $('#pgmName').value=pg?pg.name:'';$('#pgmAbout').value=pg?(pg.about||''):'';$('#pgmCat').value=pg?pg.category:'Bedrijf';
+  const av=pg&&pg.avatar;
+  $('#pgmAvatar').outerHTML=`<div id="pgmAvatar" class="avatar lg" ${av?`style="background-image:url('${pg.avatar}');background-size:cover;background-position:center"`:`style="background:linear-gradient(135deg,#12A594,#0891B2)"`}>${av?'':(pg?esc(initials(pg.name)):'P')}</div>`;
+  $('#pageModal').classList.add('open');
+}
+$('#pgmAvatarBtn').onclick=()=>$('#pgmAvatarInput').click();
+$('#pgmCoverBtn').onclick=()=>$('#pgmCoverInput').click();
+$('#pgmCoverInput').onchange=e=>{const f=e.target.files[0];if(!f)return;downscale(f,1400,.82,d=>{pgmCover=d;$('#pgmCoverPrev').style.cssText=`background-image:url('${d}');background-size:cover;background-position:center`;});e.target.value='';};
+$('#pgmAvatarInput').onchange=e=>{const f=e.target.files[0];if(!f)return;downscale(f,400,.85,d=>{pgmAvatar=d;$('#pgmAvatar').outerHTML=`<div id="pgmAvatar" class="avatar lg" style="background-image:url('${d}');background-size:cover;background-position:center"></div>`;});e.target.value='';};
+$('#pgmCancel').onclick=()=>$('#pageModal').classList.remove('open');
+$('#pageModal').onclick=e=>{if(e.target.id==='pageModal')$('#pageModal').classList.remove('open');};
+$('#pgmSave').onclick=()=>{
+  const name=$('#pgmName').value.trim();if(!name){toast('Geef je pagina een naam');return;}
+  const cat=$('#pgmCat').value,about=$('#pgmAbout').value.trim();
+  if(editingPage){editingPage.name=name;editingPage.category=cat;editingPage.about=about;if(pgmAvatar)editingPage.avatar=pgmAvatar;if(pgmCover)editingPage.cover=pgmCover;sbErr(sb.from('pages').update({name,category:cat,about,avatar:editingPage.avatar,cover:editingPage.cover}).eq('id',editingPage.id),'Pagina');$('#pageModal').classList.remove('open');toast('Pagina bijgewerkt');openPage(editingPage.id);}
+  else{const pg={id:uuid(),owner_id:me.id,name,category:cat,about,avatar:pgmAvatar,cover:pgmCover,created_at:new Date().toISOString()};DB.pages.unshift(pg);sbErr(sb.from('pages').insert(pg),'Pagina');$('#pageModal').classList.remove('open');toast('Pagina aangemaakt 🎉');openPage(pg.id);}
+};
+
+
+</script>
+</body>
+</html>

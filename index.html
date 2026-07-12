@@ -337,7 +337,17 @@
   .segbtn.active{background:var(--navy);color:#fff;border-color:transparent}
   #pgmCat{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;outline:none;background:#fff;color:var(--ink);-webkit-appearance:none;appearance:none}
   #pgmCat:focus{border-color:var(--blue)}
-.stories{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 14px;scrollbar-width:none}
+.dash{background:var(--grad);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:16px;color:#fff}
+  .dash-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .dash-greet{font-family:'Poppins';font-weight:700;font-size:18px}
+  .dash-date{font-size:13px;opacity:.92;margin-top:2px;text-transform:capitalize}
+  .dash-clock{font-family:'Poppins';font-weight:800;font-size:25px;font-variant-numeric:tabular-nums;letter-spacing:.02em;white-space:nowrap}
+  .dash-stats{display:flex;gap:8px;margin-top:14px}
+  .dstat{flex:1;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);border-radius:12px;padding:9px 6px;color:#fff;cursor:pointer;text-align:center}
+  .dstat:hover{background:rgba(255,255,255,.28)}
+  .dstat b{display:block;font-family:'Poppins';font-weight:800;font-size:18px;line-height:1.1}
+  .dstat span{font-size:11px;opacity:.92}
+  .stories{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 14px;scrollbar-width:none}
   .stories::-webkit-scrollbar{display:none}
   .story{flex:none;width:92px;height:132px;border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--shadow);border:1px solid var(--line);cursor:pointer;background:#dfe7f2}
   .story .sav{position:absolute;inset:0;background-size:cover;background-position:center}
@@ -535,6 +545,7 @@
   <main class="feed">
     <!-- HOME -->
     <section id="scrFeed" class="screen">
+      <div id="dashHeader"></div>
       <div id="storiesRow" class="stories"></div>
       <div class="shortcuts"><button class="chip" data-go="people">👥 Vrienden</button><button class="chip" data-go="pages">📄 Pagina's</button><button class="chip" data-go="saved">🔖 Opgeslagen</button></div>
       <div id="friendReqCard"></div>
@@ -668,7 +679,7 @@ let refT;
 function scheduleRefresh(){clearTimeout(refT);refT=setTimeout(async()=>{await loadAll();rerenderCurrent();},450);}
 function rerenderCurrent(){
   if(!me)return;
-  if(currentScreen==='feed'){renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
+  if(currentScreen==='feed'){renderDashHeader();renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
   else if(currentScreen==='people'){renderPeople($('#peopleSearch').value);renderPagesList($('#peopleSearch').value);}
   else if(currentScreen==='notifs'){renderNotifs();}
   else if(currentScreen==='profile'){if(viewing.kind==='page')renderPageProfile(viewing.id);else renderProfile(viewing.id);}
@@ -804,7 +815,7 @@ function setScreen(name,userId){
   $('#scrSaved').style.display=name==='saved'?'block':'none';
   document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.scr===name));
   window.scrollTo(0,0);
-  if(name==='feed'){renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
+  if(name==='feed'){renderDashHeader();renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
   if(name==='saved'){renderSaved();}
   if(name==='people'){renderPeople($('#peopleSearch').value);renderPagesList($('#peopleSearch').value);$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';}
   if(name==='notifs'){renderNotifs();DB.readAt[me.id]=new Date().toISOString();saveDB();updateBadge();}
@@ -911,6 +922,21 @@ function getSaved(){try{return JSON.parse(localStorage.getItem(savedKey())||'[]'
 function isSaved(id){return getSaved().includes(id);}
 function toggleSave(id){let s=getSaved();const was=s.includes(id);if(was)s=s.filter(x=>x!==id);else s.unshift(id);try{localStorage.setItem(savedKey(),JSON.stringify(s));}catch(e){}toast(was?'Verwijderd uit opgeslagen':'Opgeslagen');}
 function renderSaved(){const ids=getSaved();const posts=ids.map(id=>DB.posts.find(p=>p.id===id)).filter(Boolean).map(postView);const el=$('#savedList');if(!posts.length){el.innerHTML=`<div class="card empty"><div class="big">Nog niets opgeslagen</div>Tik op "Opslaan" onder een bericht om het hier te bewaren.</div>`;return;}el.innerHTML=posts.map(renderPost).join('');bindPosts(el);}
+function clockStr(){const n=new Date();return String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0');}
+setInterval(()=>{const c=document.getElementById('dashClock');if(c)c.textContent=clockStr();},1000);
+function renderDashHeader(){
+  const el=$('#dashHeader');if(!el||!me)return;
+  const now=new Date(),h=now.getHours();
+  const greet=h<6?'Goedenacht':h<12?'Goedemorgen':h<18?'Goedemiddag':'Goedenavond';
+  const naam=(myProfile&&myProfile.display_name)||'';
+  const datum=now.toLocaleDateString('nl-NL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const posts=DB.posts.filter(p=>p.user_id===me.id&&!p.page_id).length;
+  const vrienden=friendCount(me.id);
+  const volgers=DB.follows.filter(f=>f.following_id===me.id).length;
+  const opg=getSaved().length;
+  el.innerHTML=`<div class="dash"><div class="dash-top"><div><div class="dash-greet">${greet}, ${esc(naam)} 👋</div><div class="dash-date">${datum}</div></div><div class="dash-clock" id="dashClock">${clockStr()}</div></div><div class="dash-stats"><button class="dstat" data-d="profile"><b>${posts}</b><span>posts</span></button><button class="dstat" data-d="profile"><b>${vrienden}</b><span>vrienden</span></button><button class="dstat" data-d="profile"><b>${volgers}</b><span>volgers</span></button><button class="dstat" data-d="saved"><b>${opg}</b><span>opgeslagen</span></button></div></div>`;
+  el.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>setScreen(b.dataset.d));
+}
 function renderStories(){
   const el=$('#storiesRow');if(!el)return;
   const seen=new Set(),items=[];

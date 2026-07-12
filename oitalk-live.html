@@ -337,6 +337,30 @@
   .segbtn.active{background:var(--navy);color:#fff;border-color:transparent}
   #pgmCat{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;outline:none;background:#fff;color:var(--ink);-webkit-appearance:none;appearance:none}
   #pgmCat:focus{border-color:var(--blue)}
+.stories{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 14px;scrollbar-width:none}
+  .stories::-webkit-scrollbar{display:none}
+  .story{flex:none;width:92px;height:132px;border-radius:14px;overflow:hidden;position:relative;box-shadow:var(--shadow);border:1px solid var(--line);cursor:pointer;background:#dfe7f2}
+  .story .sav{position:absolute;inset:0;background-size:cover;background-position:center}
+  .story .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55))}
+  .story .ring{position:absolute;top:8px;left:8px;width:36px;height:36px;border-radius:50%;border:3px solid #fff;display:grid;place-items:center;color:#fff;font-weight:700;font-family:'Poppins';font-size:12px;background:var(--blue)}
+  .story .lbl{position:absolute;bottom:7px;left:7px;right:7px;color:#fff;font-size:11.5px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .story.mine{background:#fff}
+  .story.mine .top{position:absolute;top:0;left:0;right:0;height:84px;background-size:cover;background-position:center}
+  .story.mine .plus{position:absolute;top:70px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:19px;border:3px solid #fff;z-index:2}
+  .story.mine .lbl{color:var(--navy);text-shadow:none;bottom:9px;text-align:center}
+  .shortcuts{display:flex;gap:8px;overflow-x:auto;padding:0 2px 14px;scrollbar-width:none}
+  .shortcuts::-webkit-scrollbar{display:none}
+  .chip{flex:none;background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 15px;font-size:13.5px;font-weight:600;color:var(--navy);box-shadow:var(--shadow);cursor:pointer}
+  .chip:hover{background:#F3F7FD;color:var(--blue)}
+  .freq-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;margin-bottom:16px}
+  .freq-card h4{margin:0 0 12px;font-family:'Poppins';font-size:15px;color:var(--navy)}
+  .freq{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+  .freq:last-child{margin-bottom:0}
+  .freq .who{flex:1;min-width:0;cursor:pointer}
+  .freq .fn{font-weight:600;font-size:14.5px;color:var(--navy)}
+  .freq .fa{display:flex;gap:7px}
+  .freq .fa .btn{padding:7px 13px}
+  .act.saved{color:var(--blue)}
   .post-video{width:100%;border-radius:12px;margin:10px 0 2px;border:1px solid var(--line);display:block;background:#000;max-height:520px}
   .composer-preview video{max-width:100%;border-radius:12px;border:1px solid var(--line);display:block}
   .cover-prev{height:84px;border-radius:12px;background:var(--grad);margin-bottom:10px;border:1px solid var(--line)}
@@ -511,6 +535,9 @@
   <main class="feed">
     <!-- HOME -->
     <section id="scrFeed" class="screen">
+      <div id="storiesRow" class="stories"></div>
+      <div class="shortcuts"><button class="chip" data-go="people">👥 Vrienden</button><button class="chip" data-go="pages">📄 Pagina's</button><button class="chip" data-go="saved">🔖 Opgeslagen</button></div>
+      <div id="friendReqCard"></div>
       <div class="sug-label">Mensen om te volgen</div>
       <div id="suggestRow" class="suggest"></div>
       <div class="card composer">
@@ -554,6 +581,10 @@
       <div id="profileHead"></div>
       <div id="profileExtra"></div>
       <div id="profilePosts"></div>
+    </section>
+    <section id="scrSaved" class="screen" style="display:none">
+      <div class="scr-title">Opgeslagen</div>
+      <div id="savedList"></div>
     </section>
   </main>
 
@@ -637,10 +668,11 @@ let refT;
 function scheduleRefresh(){clearTimeout(refT);refT=setTimeout(async()=>{await loadAll();rerenderCurrent();},450);}
 function rerenderCurrent(){
   if(!me)return;
-  if(currentScreen==='feed'){renderSuggestions();loadFeed();}
+  if(currentScreen==='feed'){renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
   else if(currentScreen==='people'){renderPeople($('#peopleSearch').value);renderPagesList($('#peopleSearch').value);}
   else if(currentScreen==='notifs'){renderNotifs();}
   else if(currentScreen==='profile'){if(viewing.kind==='page')renderPageProfile(viewing.id);else renderProfile(viewing.id);}
+  else if(currentScreen==='saved'){renderSaved();}
   updateBadge();
 }
 let rtSubscribed=false;
@@ -769,9 +801,11 @@ function setScreen(name,userId){
   $('#scrPeople').style.display=name==='people'?'block':'none';
   $('#scrNotifs').style.display=name==='notifs'?'block':'none';
   $('#scrProfile').style.display=name==='profile'?'block':'none';
+  $('#scrSaved').style.display=name==='saved'?'block':'none';
   document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.scr===name));
   window.scrollTo(0,0);
-  if(name==='feed'){renderSuggestions();loadFeed();}
+  if(name==='feed'){renderStories();renderFriendReqCard();renderSuggestions();loadFeed();}
+  if(name==='saved'){renderSaved();}
   if(name==='people'){renderPeople($('#peopleSearch').value);renderPagesList($('#peopleSearch').value);$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';}
   if(name==='notifs'){renderNotifs();DB.readAt[me.id]=new Date().toISOString();saveDB();updateBadge();}
   if(name==='profile'){viewing={kind:'user',id:userId||me.id};renderProfile(viewing.id);}
@@ -866,11 +900,37 @@ function renderPost(p){
         ${rObj?`<span style="font-size:17px">${rObj.e}</span> <span>${rObj.l}</span>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zM7 11l4-8a2.5 2.5 0 0 1 2.5 2.5V8h5a2 2 0 0 1 2 2.3l-1.3 8A2 2 0 0 1 17.2 20H7"/></svg> <span>Leuk</span>`}
       </button>
       <button class="act comment-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span>${comN||''} Reageren</span></button>
+      <button class="act save ${isSaved(p.id)?'saved':''}"><svg viewBox="0 0 24 24" fill="${isSaved(p.id)?'currentColor':'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg><span>Opslaan</span></button>
     </div>
     <div class="comments"><div class="comment-list">${comments}</div><div class="add-comment"><input type="text" placeholder="Schrijf een reactie…" maxlength="2000"><button title="Versturen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button></div></div>
   </div>`;
 }
 
+function savedKey(){return 'oitalk_saved_'+(me?me.id:'x');}
+function getSaved(){try{return JSON.parse(localStorage.getItem(savedKey())||'[]');}catch(e){return [];}}
+function isSaved(id){return getSaved().includes(id);}
+function toggleSave(id){let s=getSaved();const was=s.includes(id);if(was)s=s.filter(x=>x!==id);else s.unshift(id);try{localStorage.setItem(savedKey(),JSON.stringify(s));}catch(e){}toast(was?'Verwijderd uit opgeslagen':'Opgeslagen');}
+function renderSaved(){const ids=getSaved();const posts=ids.map(id=>DB.posts.find(p=>p.id===id)).filter(Boolean).map(postView);const el=$('#savedList');if(!posts.length){el.innerHTML=`<div class="card empty"><div class="big">Nog niets opgeslagen</div>Tik op "Opslaan" onder een bericht om het hier te bewaren.</div>`;return;}el.innerHTML=posts.map(renderPost).join('');bindPosts(el);}
+function renderStories(){
+  const el=$('#storiesRow');if(!el)return;
+  const seen=new Set(),items=[];
+  DB.posts.forEach(p=>{if(p.page_id||p.user_id===me.id||seen.has(p.user_id))return;seen.add(p.user_id);const u=DB.users.find(x=>x.id===p.user_id)||{};items.push({id:p.user_id,name:u.display_name||'Onbekend',cover:u.cover});});
+  const myU=DB.users.find(x=>x.id===me.id)||{};
+  let h=`<div class="story mine" data-story="me"><div class="top" style="${myU.cover?`background-image:url('${myU.cover}')`:'background:var(--grad)'}"></div><div class="plus">+</div><div class="lbl">Jouw verhaal</div></div>`;
+  h+=items.slice(0,15).map(it=>`<div class="story" data-story="${it.id}"><div class="sav" style="${it.cover?`background-image:url('${it.cover}')`:`background:${colorFor(it.id)}`}"></div><div class="grad"></div><div class="ring">${esc(initials(it.name))}</div><div class="lbl">${esc(it.name)}</div></div>`).join('');
+  el.innerHTML=h;
+  el.querySelectorAll('[data-story]').forEach(s=>s.onclick=()=>{const id=s.dataset.story;if(id==='me'){$('#postBox').focus();window.scrollTo({top:150,behavior:'smooth'});}else setScreen('profile',id);});
+}
+function renderFriendReqCard(){
+  const el=$('#friendReqCard');if(!el)return;
+  const reqs=(DB.friendships||[]).filter(f=>f.addressee_id===me.id&&f.status==='pending');
+  if(!reqs.length){el.innerHTML='';return;}
+  el.innerHTML=`<div class="freq-card"><h4>Vriendschapsverzoeken</h4>${reqs.map(f=>{const u=userById(f.requester_id);return `<div class="freq">${avatarHTML(f.requester_id,u.display_name,'sm')}<div class="who" data-user="${f.requester_id}"><div class="fn">${esc(u.display_name)}</div></div><div class="fa"><button class="btn btn-primary" data-acc="${f.requester_id}" style="width:auto">Accepteren</button><button class="btn btn-line" data-dec="${f.requester_id}">Weigeren</button></div></div>`;}).join('')}</div>`;
+  el.querySelectorAll('[data-user]').forEach(b=>b.onclick=()=>setScreen('profile',b.dataset.user));
+  el.querySelectorAll('[data-acc]').forEach(b=>b.onclick=()=>{acceptFriend(b.dataset.acc);renderFriendReqCard();renderStories();updateBadge();});
+  el.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{declineFriend(b.dataset.dec);renderFriendReqCard();updateBadge();});
+}
+document.querySelectorAll('.chip[data-go]').forEach(c=>c.onclick=()=>{const g=c.dataset.go;if(g==='saved'){setScreen('saved');return;}ontdekSeg=(g==='pages')?'pages':'people';setScreen('people');document.querySelectorAll('.segbtn').forEach(x=>x.classList.toggle('active',x.dataset.seg===ontdekSeg));$('#peopleList').style.display=ontdekSeg==='people'?'block':'none';$('#pagesList').style.display=ontdekSeg==='pages'?'block':'none';});
 function bindPosts(root){
   root.querySelectorAll('[data-user]').forEach(el=>el.addEventListener('click',ev=>{ev.stopPropagation();setScreen('profile',el.dataset.user);}));
   root.querySelectorAll('[data-page]').forEach(el=>el.addEventListener('click',ev=>{ev.stopPropagation();openPage(el.dataset.page);}));
@@ -887,6 +947,7 @@ function bindPosts(root){
     }
     const ci=card.querySelector('.add-comment input'),cb=card.querySelector('.add-comment button');
     const send=()=>addComment(id,ci);cb.onclick=send;ci.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
+    const sv=card.querySelector('.save');if(sv)sv.onclick=()=>{toggleSave(id);if(currentScreen==='saved')renderSaved();else rerenderPosts();};
   });
 }
 document.addEventListener('click',()=>document.querySelectorAll('.post-menu.open').forEach(x=>x.classList.remove('open')));
